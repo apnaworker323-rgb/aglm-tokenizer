@@ -104,6 +104,7 @@ class AGLMUniversalTokenizer:
                 for tid in sorted(self.engine.id_to_bytes.keys())
             ],
             "special_tokens": self.engine.special_tokens
+        }
         vocab_path = os.path.join(directory, "aglm_vocab.json")
         with open(vocab_path, "w", encoding="utf-8") as f:
             json.dump(vocab_data, f, indent=2, ensure_ascii=False)
