@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aglm-tokenizer"
+version = "1.0.0"
+description = "Universal Multilingual & Romanized Indic Tokenizer with 1.55M+ Full-Capacity Vocabulary"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "AGLM Team"}
+]
+keywords = ["tokenizer", "multilingual", "indic", "dravidian", "bpe", "llm", "nlp"]
+dependencies = [
+    "tiktoken>=0.5.0",
+    "transformers>=4.38.0",
+    "openpyxl>=3.1.0",
+    "pandas>=2.0.0",
+    "flask>=2.3.0",
+]

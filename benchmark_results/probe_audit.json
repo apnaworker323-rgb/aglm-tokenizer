@@ -1,0 +1,1210 @@
+{
+  "OpenAI o200k_base": {
+    "status": "AUTHENTIC",
+    "name": "o200k_base",
+    "library": "tiktoken",
+    "tokenizer_class": "Encoding",
+    "vocab_size": 200019,
+    "file_path": "/home/akash/.local/lib/python3.14/site-packages/tiktoken/__init__.py",
+    "sha256": "3feb6a819185a05dc4112d0a826f16c92079eda97dd54b0982fb196ffce06f11",
+    "encode_function": "tiktoken.Encoding.encode(text, allowed_special='all')",
+    "probe_results": {
+      "The model is learning quickly.": {
+        "token_count": 6,
+        "first_20_ids": [
+          976,
+          2359,
+          382,
+          7524,
+          8065,
+          13
+        ],
+        "decoded_pieces": [
+          "'The'",
+          "' model'",
+          "' is'",
+          "' learning'",
+          "' quickly'",
+          "'.'"
+        ]
+      },
+      "\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0906\u0915\u093e\u0936 \u0939\u0948\u0964": {
+        "token_count": 11,
+        "first_20_ids": [
+          998,
+          1637,
+          14681,
+          628,
+          11,
+          101006,
+          31229,
+          2773,
+          54758,
+          2487,
+          1670
+        ],
+        "decoded_pieces": [
+          "'\u0928'",
+          "'\u092e'",
+          "'\u0938\u094d\u0924'",
+          "'\u0947'",
+          "','",
+          "' \u092e\u0947\u0930\u093e'",
+          "' \u0928\u093e\u092e'",
+          "' \u0906'",
+          "'\u0915\u093e\u0936'",
+          "' \u0939\u0948'",
+          "'\u0964'"
+        ]
+      },
+      "nuvvu ekkada unnaavu": {
+        "token_count": 8,
+        "first_20_ids": [
+          77,
+          6992,
+          18925,
+          6033,
+          74,
+          1194,
+          172040,
+          32341
+        ],
+        "decoded_pieces": [
+          "'n'",
+          "'uv'",
+          "'vu'",
+          "' ek'",
+          "'k'",
+          "'ada'",
+          "' unna'",
+          "'avu'"
+        ]
+      },
+      "mujhe ye kaam karna hai": {
+        "token_count": 9,
+        "first_20_ids": [
+          76,
+          5848,
+          273,
+          9225,
+          1908,
+          313,
+          6490,
+          1503,
+          34584
+        ],
+        "decoded_pieces": [
+          "'m'",
+          "'uj'",
+          "'he'",
+          "' ye'",
+          "' ka'",
+          "'am'",
+          "' kar'",
+          "'na'",
+          "' hai'"
+        ]
+      },
+      "def calculate_hash(data):": {
+        "token_count": 5,
+        "first_20_ids": [
+          1314,
+          17950,
+          20844,
+          4819,
+          3127
+        ],
+        "decoded_pieces": [
+          "'def'",
+          "' calculate'",
+          "'_hash'",
+          "'(data'",
+          "'):'"
+        ]
+      }
+    }
+  },
+  "OpenAI cl100k_base": {
+    "status": "AUTHENTIC",
+    "name": "cl100k_base",
+    "library": "tiktoken",
+    "tokenizer_class": "Encoding",
+    "vocab_size": 100277,
+    "file_path": "/home/akash/.local/lib/python3.14/site-packages/tiktoken/__init__.py",
+    "sha256": "3feb6a819185a05dc4112d0a826f16c92079eda97dd54b0982fb196ffce06f11",
+    "encode_function": "tiktoken.Encoding.encode(text, allowed_special='all')",
+    "probe_results": {
+      "The model is learning quickly.": {
+        "token_count": 6,
+        "first_20_ids": [
+          791,
+          1646,
+          374,
+          6975,
+          6288,
+          13
+        ],
+        "decoded_pieces": [
+          "'The'",
+          "' model'",
+          "' is'",
+          "' learning'",
+          "' quickly'",
+          "'.'"
+        ]
+      },
+      "\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0906\u0915\u093e\u0936 \u0939\u0948\u0964": {
+        "token_count": 25,
+        "first_20_ids": [
+          61196,
+          88344,
+          79468,
+          31584,
+          97,
+          35470,
+          11,
+          92317,
+          35470,
+          45279,
+          24810,
+          15272,
+          101,
+          32511,
+          106,
+          15272,
+          228,
+          65804,
+          32511,
+          114
+        ],
+        "decoded_pieces": [
+          "'\u0928'",
+          "'\u092e'",
+          "'\u0938'",
+          "'\u094d\ufffd'",
+          "'\ufffd'",
+          "'\u0947'",
+          "','",
+          "' \u092e'",
+          "'\u0947'",
+          "'\u0930'",
+          "'\u093e'",
+          "' \ufffd'",
+          "'\ufffd'",
+          "'\u093e\ufffd'",
+          "'\ufffd'",
+          "' \ufffd'",
+          "'\ufffd'",
+          "'\u0915'",
+          "'\u093e\ufffd'",
+          "'\ufffd'"
+        ]
+      },
+      "nuvvu ekkada unnaavu": {
+        "token_count": 10,
+        "first_20_ids": [
+          9110,
+          34175,
+          84,
+          384,
+          19747,
+          2649,
+          653,
+          3458,
+          402,
+          84
+        ],
+        "decoded_pieces": [
+          "'nu'",
+          "'vv'",
+          "'u'",
+          "' e'",
+          "'kk'",
+          "'ada'",
+          "' un'",
+          "'na'",
+          "'av'",
+          "'u'"
+        ]
+      },
+      "mujhe ye kaam karna hai": {
+        "token_count": 9,
+        "first_20_ids": [
+          76,
+          9832,
+          383,
+          20043,
+          16909,
+          309,
+          597,
+          40315,
+          47151
+        ],
+        "decoded_pieces": [
+          "'m'",
+          "'uj'",
+          "'he'",
+          "' ye'",
+          "' ka'",
+          "'am'",
+          "' k'",
+          "'arna'",
+          "' hai'"
+        ]
+      },
+      "def calculate_hash(data):": {
+        "token_count": 5,
+        "first_20_ids": [
+          755,
+          11294,
+          9127,
+          2657,
+          1680
+        ],
+        "decoded_pieces": [
+          "'def'",
+          "' calculate'",
+          "'_hash'",
+          "'(data'",
+          "'):'"
+        ]
+      }
+    }
+  },
+  "Qwen 2.5": {
+    "status": "AUTHENTIC",
+    "name": "Qwen 2.5",
+    "model_id": "Qwen/Qwen2.5-7B",
+    "library": "transformers / tokenizers",
+    "tokenizer_class": "transformers.models.qwen2.tokenization_qwen2.Qwen2Tokenizer",
+    "vocab_size": 151643,
+    "file_path": "Qwen/Qwen2.5-7B",
+    "asset_hashes": {},
+    "encode_function": "AutoTokenizer.encode(text, add_special_tokens=False)",
+    "probe_results": {
+      "The model is learning quickly.": {
+        "token_count": 6,
+        "first_20_ids": [
+          785,
+          1614,
+          374,
+          6832,
+          6157,
+          13
+        ],
+        "decoded_pieces": [
+          "'The'",
+          "' model'",
+          "' is'",
+          "' learning'",
+          "' quickly'",
+          "'.'"
+        ]
+      },
+      "\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0906\u0915\u093e\u0936 \u0939\u0948\u0964": {
+        "token_count": 24,
+        "first_20_ids": [
+          60096,
+          87244,
+          78368,
+          30484,
+          97,
+          34370,
+          11,
+          91217,
+          34370,
+          44179,
+          23868,
+          14925,
+          101,
+          31411,
+          106,
+          14925,
+          228,
+          64704,
+          31411,
+          114
+        ],
+        "decoded_pieces": [
+          "'\u0928'",
+          "'\u092e'",
+          "'\u0938'",
+          "'\u094d\ufffd'",
+          "'\ufffd'",
+          "'\u0947'",
+          "','",
+          "' \u092e'",
+          "'\u0947'",
+          "'\u0930'",
+          "'\u093e'",
+          "' \ufffd'",
+          "'\ufffd'",
+          "'\u093e\ufffd'",
+          "'\ufffd'",
+          "' \ufffd'",
+          "'\ufffd'",
+          "'\u0915'",
+          "'\u093e\ufffd'",
+          "'\ufffd'"
+        ]
+      },
+      "nuvvu ekkada unnaavu": {
+        "token_count": 10,
+        "first_20_ids": [
+          8933,
+          33075,
+          84,
+          384,
+          19196,
+          2584,
+          650,
+          3376,
+          402,
+          84
+        ],
+        "decoded_pieces": [
+          "'nu'",
+          "'vv'",
+          "'u'",
+          "' e'",
+          "'kk'",
+          "'ada'",
+          "' un'",
+          "'na'",
+          "'av'",
+          "'u'"
+        ]
+      },
+      "mujhe ye kaam karna hai": {
+        "token_count": 9,
+        "first_20_ids": [
+          76,
+          9635,
+          383,
+          19478,
+          16502,
+          309,
+          595,
+          39215,
+          46051
+        ],
+        "decoded_pieces": [
+          "'m'",
+          "'uj'",
+          "'he'",
+          "' ye'",
+          "' ka'",
+          "'am'",
+          "' k'",
+          "'arna'",
+          "' hai'"
+        ]
+      },
+      "def calculate_hash(data):": {
+        "token_count": 5,
+        "first_20_ids": [
+          750,
+          11047,
+          8950,
+          2592,
+          1648
+        ],
+        "decoded_pieces": [
+          "'def'",
+          "' calculate'",
+          "'_hash'",
+          "'(data'",
+          "'):'"
+        ]
+      }
+    }
+  },
+  "Gemma 2": {
+    "status": "AUTHENTIC",
+    "name": "Gemma 2",
+    "model_id": "unsloth/gemma-2-9b",
+    "library": "transformers / tokenizers",
+    "tokenizer_class": "transformers.models.gemma.tokenization_gemma.GemmaTokenizer",
+    "vocab_size": 256000,
+    "file_path": "unsloth/gemma-2-9b",
+    "asset_hashes": {},
+    "encode_function": "AutoTokenizer.encode(text, add_special_tokens=False)",
+    "probe_results": {
+      "The model is learning quickly.": {
+        "token_count": 6,
+        "first_20_ids": [
+          651,
+          2091,
+          603,
+          6044,
+          7290,
+          235265
+        ],
+        "decoded_pieces": [
+          "'The'",
+          "' model'",
+          "' is'",
+          "' learning'",
+          "' quickly'",
+          "'.'"
+        ]
+      },
+      "\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0906\u0915\u093e\u0936 \u0939\u0948\u0964": {
+        "token_count": 12,
+        "first_20_ids": [
+          235530,
+          235579,
+          45884,
+          235483,
+          235269,
+          59481,
+          22111,
+          94897,
+          9876,
+          125349,
+          6032,
+          235940
+        ],
+        "decoded_pieces": [
+          "'\u0928'",
+          "'\u092e'",
+          "'\u0938\u094d\u0924'",
+          "'\u0947'",
+          "','",
+          "' \u092e\u0947'",
+          "'\u0930\u093e'",
+          "' \u0928\u093e\u092e'",
+          "' \u0906'",
+          "'\u0915\u093e\u0936'",
+          "' \u0939\u0948'",
+          "'\u0964'"
+        ]
+      },
+      "nuvvu ekkada unnaavu": {
+        "token_count": 9,
+        "first_20_ids": [
+          6144,
+          235272,
+          17565,
+          526,
+          6786,
+          1530,
+          748,
+          556,
+          119591
+        ],
+        "decoded_pieces": [
+          "'nu'",
+          "'v'",
+          "'vu'",
+          "' e'",
+          "'kk'",
+          "'ada'",
+          "' un'",
+          "'na'",
+          "'avu'"
+        ]
+      },
+      "mujhe ye kaam karna hai": {
+        "token_count": 8,
+        "first_20_ids": [
+          2704,
+          235312,
+          480,
+          9929,
+          5675,
+          563,
+          206518,
+          20302
+        ],
+        "decoded_pieces": [
+          "'mu'",
+          "'j'",
+          "'he'",
+          "' ye'",
+          "' ka'",
+          "'am'",
+          "' karna'",
+          "' hai'"
+        ]
+      },
+      "def calculate_hash(data):": {
+        "token_count": 7,
+        "first_20_ids": [
+          1293,
+          13988,
+          235298,
+          8400,
+          235278,
+          1259,
+          1245
+        ],
+        "decoded_pieces": [
+          "'def'",
+          "' calculate'",
+          "'_'",
+          "'hash'",
+          "'('",
+          "'data'",
+          "'):'"
+        ]
+      }
+    }
+  },
+  "DeepSeek V3": {
+    "status": "AUTHENTIC",
+    "name": "DeepSeek V3",
+    "model_id": "deepseek-ai/DeepSeek-V3",
+    "library": "transformers / tokenizers",
+    "tokenizer_class": "transformers.tokenization_utils_tokenizers.TokenizersBackend",
+    "vocab_size": 128000,
+    "file_path": "deepseek-ai/DeepSeek-V3",
+    "asset_hashes": {},
+    "encode_function": "AutoTokenizer.encode(text, add_special_tokens=False)",
+    "probe_results": {
+      "The model is learning quickly.": {
+        "token_count": 6,
+        "first_20_ids": [
+          671,
+          2645,
+          344,
+          3607,
+          6889,
+          16
+        ],
+        "decoded_pieces": [
+          "'The'",
+          "' model'",
+          "' is'",
+          "' learning'",
+          "' quickly'",
+          "'.'"
+        ]
+      },
+      "\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0906\u0915\u093e\u0936 \u0939\u0948\u0964": {
+        "token_count": 16,
+        "first_20_ids": [
+          9094,
+          12524,
+          70223,
+          6011,
+          14,
+          16199,
+          6011,
+          7672,
+          3350,
+          23597,
+          36546,
+          31025,
+          11018,
+          86009,
+          35674,
+          4361
+        ],
+        "decoded_pieces": [
+          "'\u0928'",
+          "'\u092e'",
+          "'\u0938\u094d\u0924'",
+          "'\u0947'",
+          "','",
+          "' \u092e'",
+          "'\u0947'",
+          "'\u0930'",
+          "'\u093e'",
+          "' \u0928'",
+          "'\u093e\u092e'",
+          "' \u0906'",
+          "'\u0915'",
+          "'\u093e\u0936'",
+          "' \u0939\u0948'",
+          "'\u0964'"
+        ]
+      },
+      "nuvvu ekkada unnaavu": {
+        "token_count": 9,
+        "first_20_ids": [
+          80,
+          8729,
+          33026,
+          312,
+          19110,
+          2463,
+          612,
+          2720,
+          109477
+        ],
+        "decoded_pieces": [
+          "'n'",
+          "'uv'",
+          "'vu'",
+          "' e'",
+          "'kk'",
+          "'ada'",
+          "' un'",
+          "'na'",
+          "'avu'"
+        ]
+      },
+      "mujhe ye kaam karna hai": {
+        "token_count": 9,
+        "first_20_ids": [
+          79,
+          4421,
+          263,
+          13965,
+          9806,
+          356,
+          473,
+          29205,
+          41995
+        ],
+        "decoded_pieces": [
+          "'m'",
+          "'uj'",
+          "'he'",
+          "' ye'",
+          "' ka'",
+          "'am'",
+          "' k'",
+          "'arna'",
+          "' hai'"
+        ]
+      },
+      "def calculate_hash(data):": {
+        "token_count": 5,
+        "first_20_ids": [
+          3465,
+          9352,
+          63461,
+          15818,
+          2605
+        ],
+        "decoded_pieces": [
+          "'def'",
+          "' calculate'",
+          "'_hash'",
+          "'(data'",
+          "'):'"
+        ]
+      }
+    }
+  },
+  "Llama 3": {
+    "status": "AUTHENTIC",
+    "name": "Llama 3",
+    "model_id": "NousResearch/Meta-Llama-3-8B",
+    "library": "transformers / tokenizers",
+    "tokenizer_class": "transformers.tokenization_utils_tokenizers.TokenizersBackend",
+    "vocab_size": 128000,
+    "file_path": "NousResearch/Meta-Llama-3-8B",
+    "asset_hashes": {},
+    "encode_function": "AutoTokenizer.encode(text, add_special_tokens=False)",
+    "probe_results": {
+      "The model is learning quickly.": {
+        "token_count": 6,
+        "first_20_ids": [
+          791,
+          1646,
+          374,
+          6975,
+          6288,
+          13
+        ],
+        "decoded_pieces": [
+          "'The'",
+          "' model'",
+          "' is'",
+          "' learning'",
+          "' quickly'",
+          "'.'"
+        ]
+      },
+      "\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0906\u0915\u093e\u0936 \u0939\u0948\u0964": {
+        "token_count": 14,
+        "first_20_ids": [
+          61196,
+          88344,
+          79468,
+          100365,
+          103608,
+          92317,
+          101517,
+          24810,
+          100282,
+          100497,
+          114445,
+          102871,
+          85410,
+          100436
+        ],
+        "decoded_pieces": [
+          "'\u0928'",
+          "'\u092e'",
+          "'\u0938'",
+          "'\u094d\u0924'",
+          "'\u0947,'",
+          "' \u092e'",
+          "'\u0947\u0930'",
+          "'\u093e'",
+          "' \u0928'",
+          "'\u093e\u092e'",
+          "' \u0906\u0915'",
+          "'\u093e\u0936'",
+          "' \u0939'",
+          "'\u0948\u0964'"
+        ]
+      },
+      "nuvvu ekkada unnaavu": {
+        "token_count": 10,
+        "first_20_ids": [
+          9110,
+          34175,
+          84,
+          384,
+          19747,
+          2649,
+          653,
+          3458,
+          402,
+          84
+        ],
+        "decoded_pieces": [
+          "'nu'",
+          "'vv'",
+          "'u'",
+          "' e'",
+          "'kk'",
+          "'ada'",
+          "' un'",
+          "'na'",
+          "'av'",
+          "'u'"
+        ]
+      },
+      "mujhe ye kaam karna hai": {
+        "token_count": 9,
+        "first_20_ids": [
+          76,
+          9832,
+          383,
+          20043,
+          16909,
+          309,
+          597,
+          40315,
+          47151
+        ],
+        "decoded_pieces": [
+          "'m'",
+          "'uj'",
+          "'he'",
+          "' ye'",
+          "' ka'",
+          "'am'",
+          "' k'",
+          "'arna'",
+          "' hai'"
+        ]
+      },
+      "def calculate_hash(data):": {
+        "token_count": 5,
+        "first_20_ids": [
+          755,
+          11294,
+          9127,
+          2657,
+          1680
+        ],
+        "decoded_pieces": [
+          "'def'",
+          "' calculate'",
+          "'_hash'",
+          "'(data'",
+          "'):'"
+        ]
+      }
+    }
+  },
+  "Mistral v0.3": {
+    "status": "AUTHENTIC",
+    "name": "Mistral v0.3",
+    "model_id": "mistralai/Mistral-7B-v0.3",
+    "library": "transformers / tokenizers",
+    "tokenizer_class": "transformers.tokenization_utils_tokenizers.TokenizersBackend",
+    "vocab_size": 32768,
+    "file_path": "mistralai/Mistral-7B-v0.3",
+    "asset_hashes": {},
+    "encode_function": "AutoTokenizer.encode(text, add_special_tokens=False)",
+    "probe_results": {
+      "The model is learning quickly.": {
+        "token_count": 6,
+        "first_20_ids": [
+          1183,
+          2997,
+          1117,
+          5936,
+          5145,
+          29491
+        ],
+        "decoded_pieces": [
+          "'The'",
+          "'model'",
+          "'is'",
+          "'learning'",
+          "'quickly'",
+          "'.'"
+        ]
+      },
+      "\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0906\u0915\u093e\u0936 \u0939\u0948\u0964": {
+        "token_count": 26,
+        "first_20_ids": [
+          29473,
+          30308,
+          30440,
+          30439,
+          30068,
+          30476,
+          30354,
+          29493,
+          29473,
+          30440,
+          30354,
+          30087,
+          30000,
+          29473,
+          30308,
+          30000,
+          30440,
+          29473,
+          32065,
+          30267
+        ],
+        "decoded_pieces": [
+          "''",
+          "'\u0928'",
+          "'\u092e'",
+          "'\u0938'",
+          "'\u094d'",
+          "'\u0924'",
+          "'\u0947'",
+          "','",
+          "''",
+          "'\u092e'",
+          "'\u0947'",
+          "'\u0930'",
+          "'\u093e'",
+          "''",
+          "'\u0928'",
+          "'\u093e'",
+          "'\u092e'",
+          "''",
+          "'\u0906'",
+          "'\u0915'"
+        ]
+      },
+      "nuvvu ekkada unnaavu": {
+        "token_count": 11,
+        "first_20_ids": [
+          1075,
+          6156,
+          29496,
+          29486,
+          1085,
+          20867,
+          2308,
+          1289,
+          2288,
+          1262,
+          29486
+        ],
+        "decoded_pieces": [
+          "'n'",
+          "'uv'",
+          "'v'",
+          "'u'",
+          "'e'",
+          "'kk'",
+          "'ada'",
+          "'un'",
+          "'na'",
+          "'av'",
+          "'u'"
+        ]
+      },
+      "mujhe ye kaam karna hai": {
+        "token_count": 9,
+        "first_20_ids": [
+          21165,
+          1033,
+          15532,
+          19550,
+          1082,
+          1214,
+          11671,
+          1063,
+          2353
+        ],
+        "decoded_pieces": [
+          "'muj'",
+          "'he'",
+          "'ye'",
+          "'ka'",
+          "'am'",
+          "'k'",
+          "'arna'",
+          "'h'",
+          "'ai'"
+        ]
+      },
+      "def calculate_hash(data):": {
+        "token_count": 7,
+        "first_20_ids": [
+          1569,
+          14679,
+          29498,
+          6468,
+          29500,
+          1824,
+          2097
+        ],
+        "decoded_pieces": [
+          "'def'",
+          "'calculate'",
+          "'_'",
+          "'hash'",
+          "'('",
+          "'data'",
+          "'):'"
+        ]
+      }
+    }
+  },
+  "XLM-RoBERTa": {
+    "status": "AUTHENTIC",
+    "name": "XLM-RoBERTa",
+    "model_id": "xlm-roberta-base",
+    "library": "transformers / tokenizers",
+    "tokenizer_class": "transformers.models.xlm_roberta.tokenization_xlm_roberta.XLMRobertaTokenizer",
+    "vocab_size": 250002,
+    "file_path": "xlm-roberta-base",
+    "asset_hashes": {},
+    "encode_function": "AutoTokenizer.encode(text, add_special_tokens=False)",
+    "probe_results": {
+      "The model is learning quickly.": {
+        "token_count": 6,
+        "first_20_ids": [
+          581,
+          3299,
+          83,
+          52080,
+          69405,
+          5
+        ],
+        "decoded_pieces": [
+          "'The'",
+          "'model'",
+          "'is'",
+          "'learning'",
+          "'quickly'",
+          "'.'"
+        ]
+      },
+      "\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0906\u0915\u093e\u0936 \u0939\u0948\u0964": {
+        "token_count": 8,
+        "first_20_ids": [
+          68700,
+          97883,
+          4,
+          40775,
+          8062,
+          119427,
+          460,
+          125
+        ],
+        "decoded_pieces": [
+          "'\u0928\u092e'",
+          "'\u0938\u094d\u0924\u0947'",
+          "','",
+          "'\u092e\u0947\u0930\u093e'",
+          "'\u0928\u093e\u092e'",
+          "'\u0906\u0915\u093e\u0936'",
+          "'\u0939\u0948'",
+          "'\u0964'"
+        ]
+      },
+      "nuvvu ekkada unnaavu": {
+        "token_count": 7,
+        "first_20_ids": [
+          315,
+          334,
+          1783,
+          1627,
+          31620,
+          85589,
+          30776
+        ],
+        "decoded_pieces": [
+          "'nu'",
+          "'v'",
+          "'vu'",
+          "'ek'",
+          "'kada'",
+          "'unna'",
+          "'avu'"
+        ]
+      },
+      "mujhe ye kaam karna hai": {
+        "token_count": 5,
+        "first_20_ids": [
+          91420,
+          2422,
+          77610,
+          57730,
+          1337
+        ],
+        "decoded_pieces": [
+          "'mujhe'",
+          "'ye'",
+          "'kaam'",
+          "'karna'",
+          "'hai'"
+        ]
+      },
+      "def calculate_hash(data):": {
+        "token_count": 9,
+        "first_20_ids": [
+          8,
+          420,
+          74481,
+          67,
+          454,
+          126234,
+          132,
+          10135,
+          2077
+        ],
+        "decoded_pieces": [
+          "'de'",
+          "'f'",
+          "'calcula'",
+          "'te'",
+          "'_'",
+          "'hash'",
+          "'('",
+          "'data'",
+          "'):'"
+        ]
+      }
+    }
+  },
+  "XLM-V": {
+    "status": "AUTHENTIC",
+    "name": "XLM-V",
+    "model_id": "facebook/xlm-v-base",
+    "library": "transformers / tokenizers",
+    "tokenizer_class": "transformers.models.xlm_roberta.tokenization_xlm_roberta.XLMRobertaTokenizer",
+    "vocab_size": 901629,
+    "file_path": "facebook/xlm-v-base",
+    "asset_hashes": {},
+    "encode_function": "AutoTokenizer.encode(text, add_special_tokens=False)",
+    "probe_results": {
+      "The model is learning quickly.": {
+        "token_count": 6,
+        "first_20_ids": [
+          1038,
+          2200,
+          69,
+          551242,
+          551399,
+          5
+        ],
+        "decoded_pieces": [
+          "'The'",
+          "'model'",
+          "'is'",
+          "'learning'",
+          "'quickly'",
+          "'.'"
+        ]
+      },
+      "\u0928\u092e\u0938\u094d\u0924\u0947, \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0906\u0915\u093e\u0936 \u0939\u0948\u0964": {
+        "token_count": 7,
+        "first_20_ids": [
+          527537,
+          4,
+          387432,
+          383787,
+          409821,
+          382424,
+          382399
+        ],
+        "decoded_pieces": [
+          "'\u0928\u092e\u0938\u094d\u0924\u0947'",
+          "','",
+          "'\u092e\u0947\u0930\u093e'",
+          "'\u0928\u093e\u092e'",
+          "'\u0906\u0915\u093e\u0936'",
+          "'\u0939\u0948'",
+          "'\u0964'"
+        ]
+      },
+      "nuvvu ekkada unnaavu": {
+        "token_count": 6,
+        "first_20_ids": [
+          92284,
+          16,
+          199,
+          83702,
+          44491,
+          12146
+        ],
+        "decoded_pieces": [
+          "'nuvv'",
+          "'u'",
+          "'e'",
+          "'kkada'",
+          "'unna'",
+          "'avu'"
+        ]
+      },
+      "mujhe ye kaam karna hai": {
+        "token_count": 5,
+        "first_20_ids": [
+          562942,
+          987,
+          596494,
+          103812,
+          25834
+        ],
+        "decoded_pieces": [
+          "'mujhe'",
+          "'ye'",
+          "'kaam'",
+          "'karna'",
+          "'hai'"
+        ]
+      },
+      "def calculate_hash(data):": {
+        "token_count": 7,
+        "first_20_ids": [
+          20548,
+          583228,
+          498,
+          135124,
+          395,
+          28994,
+          1550
+        ],
+        "decoded_pieces": [
+          "'def'",
+          "'calculate'",
+          "'_'",
+          "'hash'",
+          "'('",
+          "'data'",
+          "'):'"
+        ]
+      }
+    }
+  }
+}

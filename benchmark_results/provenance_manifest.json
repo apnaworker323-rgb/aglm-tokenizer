@@ -1,0 +1,1446 @@
+{
+  "version": "1.0.0",
+  "protocol": "AGLM-Strict-HeldOut-Isolation",
+  "slices": {
+    "en:train_mining": {
+      "language_code": "en",
+      "slice_type": "train_mining",
+      "byte_count": 1983,
+      "char_count": 1983,
+      "line_count": 20,
+      "sha256_hash": "7a7940a56808f19bab066a0eabb871fa0f21d53545cd093eb532b2826868ea71",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English Mining Slice"
+    },
+    "en:held_out_eval": {
+      "language_code": "en",
+      "slice_type": "held_out_eval",
+      "byte_count": 1675,
+      "char_count": 1675,
+      "line_count": 16,
+      "sha256_hash": "17c85c293d309dfe19e763fc7bf9e8964f2513721e724edc2807c2ca028aeda9",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English Held-Out Evaluation Slice"
+    },
+    "es:train_mining": {
+      "language_code": "es",
+      "slice_type": "train_mining",
+      "byte_count": 1943,
+      "char_count": 1899,
+      "line_count": 20,
+      "sha256_hash": "eb3cadeef321398b93947129bdee6eb553dff644f869d2f2d446d0c511e2219f",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Spanish Mining Slice"
+    },
+    "es:held_out_eval": {
+      "language_code": "es",
+      "slice_type": "held_out_eval",
+      "byte_count": 1683,
+      "char_count": 1655,
+      "line_count": 16,
+      "sha256_hash": "f165be181e4d4531c6dcc9a03d6531a4de576b9d90451d0d3c5553e3c8ef3181",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Spanish Held-Out Evaluation Slice"
+    },
+    "fr:train_mining": {
+      "language_code": "fr",
+      "slice_type": "train_mining",
+      "byte_count": 1895,
+      "char_count": 1875,
+      "line_count": 20,
+      "sha256_hash": "b9164b55cf372bff6a6ae30fcda6ddceb61433d5283ffb1cd2931ba1ab5736a9",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "French Mining Slice"
+    },
+    "fr:held_out_eval": {
+      "language_code": "fr",
+      "slice_type": "held_out_eval",
+      "byte_count": 1655,
+      "char_count": 1619,
+      "line_count": 16,
+      "sha256_hash": "cdc3c5f0a6f57513e1e511f5c2e2411a9adfe31be6a4c0ca784bd8bb8d95daf0",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "French Held-Out Evaluation Slice"
+    },
+    "de:train_mining": {
+      "language_code": "de",
+      "slice_type": "train_mining",
+      "byte_count": 1875,
+      "char_count": 1855,
+      "line_count": 20,
+      "sha256_hash": "7651292b00ed6f7fe88456e0f29e459e344fc139b6b18f83968f33be08a8bd3e",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "German Mining Slice"
+    },
+    "de:held_out_eval": {
+      "language_code": "de",
+      "slice_type": "held_out_eval",
+      "byte_count": 1663,
+      "char_count": 1639,
+      "line_count": 16,
+      "sha256_hash": "65c0a3f40629c27648e894c8c4feb7f8606e27b24c905bd3fc72c70d817f54d2",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "German Held-Out Evaluation Slice"
+    },
+    "pt:train_mining": {
+      "language_code": "pt",
+      "slice_type": "train_mining",
+      "byte_count": 1939,
+      "char_count": 1859,
+      "line_count": 20,
+      "sha256_hash": "d2f57121f083f84ca577d46bf43dc004fe8b1e6e01853da8fa93b6bef1ef4fd3",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Portuguese Mining Slice"
+    },
+    "pt:held_out_eval": {
+      "language_code": "pt",
+      "slice_type": "held_out_eval",
+      "byte_count": 1615,
+      "char_count": 1543,
+      "line_count": 16,
+      "sha256_hash": "afc2e08f7241ee1ffa13610dc1f4c79535aa0e3401fce81185df4c5b21f4b3fa",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Portuguese Held-Out Evaluation Slice"
+    },
+    "it:train_mining": {
+      "language_code": "it",
+      "slice_type": "train_mining",
+      "byte_count": 1523,
+      "char_count": 1519,
+      "line_count": 16,
+      "sha256_hash": "6f7fecfa64c58b81efe5d9333c7308beca18b69b21a338719f9019e1aedb13b5",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Italian Mining Slice"
+    },
+    "it:held_out_eval": {
+      "language_code": "it",
+      "slice_type": "held_out_eval",
+      "byte_count": 1243,
+      "char_count": 1239,
+      "line_count": 12,
+      "sha256_hash": "8f4aaa5a5f56641e11b2a44386a52e5c5ef04ccd6bfe727688836d7d45c45af7",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Italian Held-Out Evaluation Slice"
+    },
+    "nl:train_mining": {
+      "language_code": "nl",
+      "slice_type": "train_mining",
+      "byte_count": 1019,
+      "char_count": 1015,
+      "line_count": 12,
+      "sha256_hash": "c4205946c4b62e53d802bdd5fd61b2c659fc49745b4238ec54ab1d140851c727",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Dutch Mining Slice"
+    },
+    "nl:held_out_eval": {
+      "language_code": "nl",
+      "slice_type": "held_out_eval",
+      "byte_count": 747,
+      "char_count": 747,
+      "line_count": 8,
+      "sha256_hash": "c1e05a7d3bb64869e272987a79707b55b97b94ef42cb8145032f7f5324b0390d",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Dutch Held-Out Evaluation Slice"
+    },
+    "pl:train_mining": {
+      "language_code": "pl",
+      "slice_type": "train_mining",
+      "byte_count": 1011,
+      "char_count": 955,
+      "line_count": 12,
+      "sha256_hash": "385004270f088706895ed3c2b0dd0235dc6f31978d48809f8adbdad81835c3d6",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Polish Mining Slice"
+    },
+    "pl:held_out_eval": {
+      "language_code": "pl",
+      "slice_type": "held_out_eval",
+      "byte_count": 803,
+      "char_count": 763,
+      "line_count": 8,
+      "sha256_hash": "4be4302fb9a29fb4ebc919500ca09ed9fba1cdfc945c8e874d93f86a01813102",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Polish Held-Out Evaluation Slice"
+    },
+    "cs:train_mining": {
+      "language_code": "cs",
+      "slice_type": "train_mining",
+      "byte_count": 1059,
+      "char_count": 951,
+      "line_count": 12,
+      "sha256_hash": "4222ea5199e065ba194860e8979c4ca307e41378f92ff098109f4cd82889e77b",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Czech Mining Slice"
+    },
+    "cs:held_out_eval": {
+      "language_code": "cs",
+      "slice_type": "held_out_eval",
+      "byte_count": 803,
+      "char_count": 715,
+      "line_count": 8,
+      "sha256_hash": "e76f8352657f5635afb1db68fb044e53ba8e58137f88ffd9c7b52881489d9f99",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Czech Held-Out Evaluation Slice"
+    },
+    "ro:train_mining": {
+      "language_code": "ro",
+      "slice_type": "train_mining",
+      "byte_count": 1055,
+      "char_count": 1011,
+      "line_count": 12,
+      "sha256_hash": "ae0c698b46bdd7a9f6776f48a6a6bdce978d8dedc396ba6e26fcc4da5fdfe2fd",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Romanian Mining Slice"
+    },
+    "ro:held_out_eval": {
+      "language_code": "ro",
+      "slice_type": "held_out_eval",
+      "byte_count": 819,
+      "char_count": 783,
+      "line_count": 8,
+      "sha256_hash": "e6776e46f55feac0250c1359bf0429d343e0db5018a681b241f11ad663441872",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Romanian Held-Out Evaluation Slice"
+    },
+    "tr:train_mining": {
+      "language_code": "tr",
+      "slice_type": "train_mining",
+      "byte_count": 1471,
+      "char_count": 1355,
+      "line_count": 16,
+      "sha256_hash": "d315f0bfc6eb96a6e3e91359b6006dd7abcb1e45b6be48a71606a78ff654843d",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Turkish Mining Slice"
+    },
+    "tr:held_out_eval": {
+      "language_code": "tr",
+      "slice_type": "held_out_eval",
+      "byte_count": 1303,
+      "char_count": 1191,
+      "line_count": 12,
+      "sha256_hash": "4ac9e8937aa6e57106f895e08d93a2fd973b8108bdcd92ab50e5e1b23dcf4599",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Turkish Held-Out Evaluation Slice"
+    },
+    "vi:train_mining": {
+      "language_code": "vi",
+      "slice_type": "train_mining",
+      "byte_count": 1687,
+      "char_count": 1267,
+      "line_count": 16,
+      "sha256_hash": "f72ea536e2e9eaa1afdd8993398c3e8537ba03fc6f1b7597b13dbad8b3b4183a",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Vietnamese Mining Slice"
+    },
+    "vi:held_out_eval": {
+      "language_code": "vi",
+      "slice_type": "held_out_eval",
+      "byte_count": 1343,
+      "char_count": 1007,
+      "line_count": 12,
+      "sha256_hash": "6066c920cf7af8eacf8f4117741d568f065e221bea964567a6ce28fa3f1e3acd",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Vietnamese Held-Out Evaluation Slice"
+    },
+    "id:train_mining": {
+      "language_code": "id",
+      "slice_type": "train_mining",
+      "byte_count": 979,
+      "char_count": 979,
+      "line_count": 12,
+      "sha256_hash": "0e26fd574229a2693ad53c606bb33269b5d812dbaf7e8b3b0660faae6cf530ba",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Indonesian/Malay Mining Slice"
+    },
+    "id:held_out_eval": {
+      "language_code": "id",
+      "slice_type": "held_out_eval",
+      "byte_count": 699,
+      "char_count": 699,
+      "line_count": 8,
+      "sha256_hash": "c52120d2296fb83c33af791e89da7135b5771fb358302ef9d05b4f3a0b9ebbea",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Indonesian/Malay Held-Out Evaluation Slice"
+    },
+    "sw:train_mining": {
+      "language_code": "sw",
+      "slice_type": "train_mining",
+      "byte_count": 995,
+      "char_count": 995,
+      "line_count": 12,
+      "sha256_hash": "c6f60ee2271837e3e3c0082ffc1049614b07bfaf7462811662a3990191688d8d",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Swahili Mining Slice"
+    },
+    "sw:held_out_eval": {
+      "language_code": "sw",
+      "slice_type": "held_out_eval",
+      "byte_count": 719,
+      "char_count": 719,
+      "line_count": 8,
+      "sha256_hash": "a17ad1f2c600ba353f7fa8fd342ef2a4d5d5a8db13437b76059fc3f77d23a191",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Swahili Held-Out Evaluation Slice"
+    },
+    "ru:train_mining": {
+      "language_code": "ru",
+      "slice_type": "train_mining",
+      "byte_count": 3331,
+      "char_count": 1767,
+      "line_count": 20,
+      "sha256_hash": "490c1b149f057902f2bbab3029cad7451743cf4a9fe807f2f7903e8cfeff5beb",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Russian Mining Slice"
+    },
+    "ru:held_out_eval": {
+      "language_code": "ru",
+      "slice_type": "held_out_eval",
+      "byte_count": 3003,
+      "char_count": 1591,
+      "line_count": 16,
+      "sha256_hash": "8958048671b40ccb05a367e4a12f707511daa07a3a12397fa0888885eaa0cd8a",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Russian Held-Out Evaluation Slice"
+    },
+    "uk:train_mining": {
+      "language_code": "uk",
+      "slice_type": "train_mining",
+      "byte_count": 1779,
+      "char_count": 951,
+      "line_count": 12,
+      "sha256_hash": "3ab1eb339c59169d0a26b820d7b64e0d0ec7cbaca77857c3d68717f552cec985",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Ukrainian Mining Slice"
+    },
+    "uk:held_out_eval": {
+      "language_code": "uk",
+      "slice_type": "held_out_eval",
+      "byte_count": 1479,
+      "char_count": 783,
+      "line_count": 8,
+      "sha256_hash": "92d74e824fbb927d38c28465119b75a82c477f401385de00f46e9c2e58156492",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Ukrainian Held-Out Evaluation Slice"
+    },
+    "bg:train_mining": {
+      "language_code": "bg",
+      "slice_type": "train_mining",
+      "byte_count": 1871,
+      "char_count": 999,
+      "line_count": 12,
+      "sha256_hash": "7c447ec4919fe49f9e12e4a79b8106a53c9de66f43715be9e1ffa83112bef0ca",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Bulgarian Mining Slice"
+    },
+    "bg:held_out_eval": {
+      "language_code": "bg",
+      "slice_type": "held_out_eval",
+      "byte_count": 1347,
+      "char_count": 719,
+      "line_count": 8,
+      "sha256_hash": "7e9ab51c67e2ef4d0933f8319e265e4d8e874711d13ab8199110454d5af3b217",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Bulgarian Held-Out Evaluation Slice"
+    },
+    "sr:train_mining": {
+      "language_code": "sr",
+      "slice_type": "train_mining",
+      "byte_count": 1755,
+      "char_count": 935,
+      "line_count": 12,
+      "sha256_hash": "cdf768903073500d562855c5e408e5666d2f882d2f55379feda36e62c6b9ada5",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Serbian Mining Slice"
+    },
+    "sr:held_out_eval": {
+      "language_code": "sr",
+      "slice_type": "held_out_eval",
+      "byte_count": 1299,
+      "char_count": 691,
+      "line_count": 8,
+      "sha256_hash": "daf70315a5e142c1f19e4d775fa2cadb6db84f14ddbf984530ed3b8e2920b4c2",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Serbian Held-Out Evaluation Slice"
+    },
+    "ar:train_mining": {
+      "language_code": "ar",
+      "slice_type": "train_mining",
+      "byte_count": 2763,
+      "char_count": 1495,
+      "line_count": 20,
+      "sha256_hash": "85cb665757e43f24e8b5129479981fdfefa62d1cb27ee83a86e6d983e476aded",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Arabic Mining Slice"
+    },
+    "ar:held_out_eval": {
+      "language_code": "ar",
+      "slice_type": "held_out_eval",
+      "byte_count": 2339,
+      "char_count": 1267,
+      "line_count": 16,
+      "sha256_hash": "28b914ef090c725efb4333f31375f07b052d9ddd5e407771969dc84b628c9a11",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Arabic Held-Out Evaluation Slice"
+    },
+    "fa:train_mining": {
+      "language_code": "fa",
+      "slice_type": "train_mining",
+      "byte_count": 2247,
+      "char_count": 1203,
+      "line_count": 16,
+      "sha256_hash": "860d17128ccd56d5d6104a80e921be1606a3e7a044838876cbf2a48830b851ef",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Persian/Farsi Mining Slice"
+    },
+    "fa:held_out_eval": {
+      "language_code": "fa",
+      "slice_type": "held_out_eval",
+      "byte_count": 1883,
+      "char_count": 1007,
+      "line_count": 12,
+      "sha256_hash": "400c5b8a8e94680c43a585a0ac6eb768269073d798b05d5c26b28ec7d0fe487b",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Persian/Farsi Held-Out Evaluation Slice"
+    },
+    "ur:train_mining": {
+      "language_code": "ur",
+      "slice_type": "train_mining",
+      "byte_count": 2211,
+      "char_count": 1219,
+      "line_count": 16,
+      "sha256_hash": "7e24d5c961a00c1f7908e73c14cc181199af098677f93127f80635d50d662f15",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Urdu Mining Slice"
+    },
+    "ur:held_out_eval": {
+      "language_code": "ur",
+      "slice_type": "held_out_eval",
+      "byte_count": 1855,
+      "char_count": 1023,
+      "line_count": 12,
+      "sha256_hash": "10b8ad0c59f513e1f03e54dc39f36d1caee1698903ad4e40de3504dfc2b660c5",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Urdu Held-Out Evaluation Slice"
+    },
+    "hi:train_mining": {
+      "language_code": "hi",
+      "slice_type": "train_mining",
+      "byte_count": 4531,
+      "char_count": 1699,
+      "line_count": 20,
+      "sha256_hash": "99d055c67ce2063228807548c5346bb9e23dc7329c5e692d48d5952f0ded716d",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hindi Mining Slice"
+    },
+    "hi:held_out_eval": {
+      "language_code": "hi",
+      "slice_type": "held_out_eval",
+      "byte_count": 4187,
+      "char_count": 1547,
+      "line_count": 16,
+      "sha256_hash": "8f369cc41685a8f3583b6d11fa1b6f1ae9ff3728ef5fa0e372744510b21d9743",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hindi Held-Out Evaluation Slice"
+    },
+    "mr:train_mining": {
+      "language_code": "mr",
+      "slice_type": "train_mining",
+      "byte_count": 2491,
+      "char_count": 923,
+      "line_count": 12,
+      "sha256_hash": "418eb7a3fb48cdf3d1501f58ca61dc37352d9ae7d9b865cd390479d0f0fb8fa2",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Marathi Mining Slice"
+    },
+    "mr:held_out_eval": {
+      "language_code": "mr",
+      "slice_type": "held_out_eval",
+      "byte_count": 1907,
+      "char_count": 691,
+      "line_count": 8,
+      "sha256_hash": "57491c63fc2ed601b690a224fc7d599424290ded523a275e0446c47bf9d4932e",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Marathi Held-Out Evaluation Slice"
+    },
+    "bn:train_mining": {
+      "language_code": "bn",
+      "slice_type": "train_mining",
+      "byte_count": 3567,
+      "char_count": 1303,
+      "line_count": 16,
+      "sha256_hash": "531b1241d96f0b7f066a56f2b5b431525e32375914e8ac5d7dd3c44bd4d9e2e3",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Bengali Mining Slice"
+    },
+    "bn:held_out_eval": {
+      "language_code": "bn",
+      "slice_type": "held_out_eval",
+      "byte_count": 3135,
+      "char_count": 1135,
+      "line_count": 12,
+      "sha256_hash": "b04445e8701806f47a36232f5ff2b7bcabae7e1e99b9aa28accf94a6620231dc",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Bengali Held-Out Evaluation Slice"
+    },
+    "gu:train_mining": {
+      "language_code": "gu",
+      "slice_type": "train_mining",
+      "byte_count": 2675,
+      "char_count": 995,
+      "line_count": 12,
+      "sha256_hash": "514117d021a71873bb43f7be4d800cd9b138b45b3ba86bf63e36ca7f46e49da7",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Gujarati Mining Slice"
+    },
+    "gu:held_out_eval": {
+      "language_code": "gu",
+      "slice_type": "held_out_eval",
+      "byte_count": 2131,
+      "char_count": 779,
+      "line_count": 8,
+      "sha256_hash": "60482640c8761149c2241f2a1b87ba86934715ef8bb9d88815bf99dbf80a0fed",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Gujarati Held-Out Evaluation Slice"
+    },
+    "pa:train_mining": {
+      "language_code": "pa",
+      "slice_type": "train_mining",
+      "byte_count": 2287,
+      "char_count": 863,
+      "line_count": 12,
+      "sha256_hash": "e7240118afeb9cbfee5f762c1a7d17357a16389aa1edaaeef24ce15dee0d398a",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Punjabi Mining Slice"
+    },
+    "pa:held_out_eval": {
+      "language_code": "pa",
+      "slice_type": "held_out_eval",
+      "byte_count": 1775,
+      "char_count": 663,
+      "line_count": 8,
+      "sha256_hash": "7d6d2d48636c8750dd80a4f58eca59fdac44711d09f675f61a02119011218d7e",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Punjabi Held-Out Evaluation Slice"
+    },
+    "or:train_mining": {
+      "language_code": "or",
+      "slice_type": "train_mining",
+      "byte_count": 1803,
+      "char_count": 659,
+      "line_count": 8,
+      "sha256_hash": "7c9294d93311e18d6fa3fedac129639724da6facad8e8615eeae246d056bb9ec",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Odia Mining Slice"
+    },
+    "or:held_out_eval": {
+      "language_code": "or",
+      "slice_type": "held_out_eval",
+      "byte_count": 1775,
+      "char_count": 647,
+      "line_count": 8,
+      "sha256_hash": "5b0169b4bcd686ad8fe16cf5b9b7719c7416bf51ba920bb6e0228e902e767379",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Odia Held-Out Evaluation Slice"
+    },
+    "as:train_mining": {
+      "language_code": "as",
+      "slice_type": "train_mining",
+      "byte_count": 1647,
+      "char_count": 607,
+      "line_count": 8,
+      "sha256_hash": "d26cb69f7d206652e9485e0bec9683b65f724cfe0b5fe0a0d358c31ca53d3491",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Assamese Mining Slice"
+    },
+    "as:held_out_eval": {
+      "language_code": "as",
+      "slice_type": "held_out_eval",
+      "byte_count": 1919,
+      "char_count": 695,
+      "line_count": 8,
+      "sha256_hash": "d569b4f3c9fab9ccb630756e7426e0058228cca0133923a27cf40e69a940979d",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Assamese Held-Out Evaluation Slice"
+    },
+    "ne:train_mining": {
+      "language_code": "ne",
+      "slice_type": "train_mining",
+      "byte_count": 1779,
+      "char_count": 651,
+      "line_count": 8,
+      "sha256_hash": "c1fc4233a8d99638b3094189503626b63aedf9e8cd804795b4a7386c694eddff",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Nepali Mining Slice"
+    },
+    "ne:held_out_eval": {
+      "language_code": "ne",
+      "slice_type": "held_out_eval",
+      "byte_count": 1927,
+      "char_count": 695,
+      "line_count": 8,
+      "sha256_hash": "1b0507b0b5cdd2ce181f8e11fb174969a97dd58bd1093880ba9b912f8b20f615",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Nepali Held-Out Evaluation Slice"
+    },
+    "ta:train_mining": {
+      "language_code": "ta",
+      "slice_type": "train_mining",
+      "byte_count": 4427,
+      "char_count": 1603,
+      "line_count": 20,
+      "sha256_hash": "2493a0b817dea3f87b8fab33b2e695bdd0809abc8f7a9d4f9a20c1e1bd568a73",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Tamil Mining Slice"
+    },
+    "ta:held_out_eval": {
+      "language_code": "ta",
+      "slice_type": "held_out_eval",
+      "byte_count": 4319,
+      "char_count": 1551,
+      "line_count": 16,
+      "sha256_hash": "8906d84f8a0dbf6628a3efc3b3ffbda084dc19831bdda9c661b3869216376e11",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Tamil Held-Out Evaluation Slice"
+    },
+    "te:train_mining": {
+      "language_code": "te",
+      "slice_type": "train_mining",
+      "byte_count": 4347,
+      "char_count": 1587,
+      "line_count": 20,
+      "sha256_hash": "80572a57613c5c293043af9f4447b1d7d49debff30683a0d312910ea5943f545",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Telugu Mining Slice"
+    },
+    "te:held_out_eval": {
+      "language_code": "te",
+      "slice_type": "held_out_eval",
+      "byte_count": 4083,
+      "char_count": 1483,
+      "line_count": 16,
+      "sha256_hash": "366df452be2f13e088f17c81492571a2c6c5efb204d0165b6c23853ba094555b",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Telugu Held-Out Evaluation Slice"
+    },
+    "kn:train_mining": {
+      "language_code": "kn",
+      "slice_type": "train_mining",
+      "byte_count": 2723,
+      "char_count": 987,
+      "line_count": 12,
+      "sha256_hash": "ea67eb3a9d8e019ca618318ea95e4417989b4835c25a17a154a0cb8210d4b7c7",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Kannada Mining Slice"
+    },
+    "kn:held_out_eval": {
+      "language_code": "kn",
+      "slice_type": "held_out_eval",
+      "byte_count": 2039,
+      "char_count": 735,
+      "line_count": 8,
+      "sha256_hash": "935debf56ddeccf7ce7703043769af5965fbf338d64a6bf037860c78038fdf27",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Kannada Held-Out Evaluation Slice"
+    },
+    "ml:train_mining": {
+      "language_code": "ml",
+      "slice_type": "train_mining",
+      "byte_count": 2799,
+      "char_count": 1015,
+      "line_count": 12,
+      "sha256_hash": "abc9783f487c3cec72adc36c790d3baa68fc074a38e6953a6b572723fc38ef22",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Malayalam Mining Slice"
+    },
+    "ml:held_out_eval": {
+      "language_code": "ml",
+      "slice_type": "held_out_eval",
+      "byte_count": 2199,
+      "char_count": 783,
+      "line_count": 8,
+      "sha256_hash": "353c95387840c1c20f50413546e80445d994f9f1bf5d7bdfc80bd72d28671601",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Malayalam Held-Out Evaluation Slice"
+    },
+    "zh-Hans:train_mining": {
+      "language_code": "zh-Hans",
+      "slice_type": "train_mining",
+      "byte_count": 1831,
+      "char_count": 623,
+      "line_count": 20,
+      "sha256_hash": "25f732553cc01811a4dd00d2200961bd68cf2803ad23d4f3f074b7d422ed00f3",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Simplified Chinese Mining Slice"
+    },
+    "zh-Hans:held_out_eval": {
+      "language_code": "zh-Hans",
+      "slice_type": "held_out_eval",
+      "byte_count": 1703,
+      "char_count": 607,
+      "line_count": 16,
+      "sha256_hash": "5554ebcd78a69e707ed878bc52f74f7b34c497826cec01650bfed6b329edefea",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Simplified Chinese Held-Out Evaluation Slice"
+    },
+    "zh-Hant:train_mining": {
+      "language_code": "zh-Hant",
+      "slice_type": "train_mining",
+      "byte_count": 1067,
+      "char_count": 363,
+      "line_count": 12,
+      "sha256_hash": "df32847ba0729984ae02e6dd369fb1072a035dc58d5224f60853d887a598c733",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Traditional Chinese Mining Slice"
+    },
+    "zh-Hant:held_out_eval": {
+      "language_code": "zh-Hant",
+      "slice_type": "held_out_eval",
+      "byte_count": 739,
+      "char_count": 251,
+      "line_count": 8,
+      "sha256_hash": "9282338052f7d27a78887819471f2df7bede390c47394b01e392f6097a37077f",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Traditional Chinese Held-Out Evaluation Slice"
+    },
+    "ja:train_mining": {
+      "language_code": "ja",
+      "slice_type": "train_mining",
+      "byte_count": 2347,
+      "char_count": 795,
+      "line_count": 20,
+      "sha256_hash": "2a5ffa1fc5a91a83e57256d8cec237e36f4ad0ed368c6db9d43f419a209f492e",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Japanese Mining Slice"
+    },
+    "ja:held_out_eval": {
+      "language_code": "ja",
+      "slice_type": "held_out_eval",
+      "byte_count": 2063,
+      "char_count": 727,
+      "line_count": 16,
+      "sha256_hash": "24ba4e97c932a8d384d53db5e7c17beba0889212cd52ba14a939bf0f70ed6fd1",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Japanese Held-Out Evaluation Slice"
+    },
+    "ko:train_mining": {
+      "language_code": "ko",
+      "slice_type": "train_mining",
+      "byte_count": 2483,
+      "char_count": 995,
+      "line_count": 20,
+      "sha256_hash": "d7cdb9eaad62da5cae5f9a4896196b818048fe801a86732d405b91be66d8de07",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Korean Mining Slice"
+    },
+    "ko:held_out_eval": {
+      "language_code": "ko",
+      "slice_type": "held_out_eval",
+      "byte_count": 2159,
+      "char_count": 879,
+      "line_count": 16,
+      "sha256_hash": "5cb0b5c6d8bbb7d3d06a20f337c09f08f155bb026d449511c56cfa4724c4fe80",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Korean Held-Out Evaluation Slice"
+    },
+    "th:train_mining": {
+      "language_code": "th",
+      "slice_type": "train_mining",
+      "byte_count": 4023,
+      "char_count": 1351,
+      "line_count": 16,
+      "sha256_hash": "604dfda3110548db9cb473279ad5ece2fae59e855970bba2f70892c2f9cd0189",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Thai Mining Slice"
+    },
+    "th:held_out_eval": {
+      "language_code": "th",
+      "slice_type": "held_out_eval",
+      "byte_count": 3267,
+      "char_count": 1099,
+      "line_count": 12,
+      "sha256_hash": "4dfa1e3b2a2e48f6752b0d0154c0b830d3d228bbe6b99a751241c4aa0298d339",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Thai Held-Out Evaluation Slice"
+    },
+    "my:train_mining": {
+      "language_code": "my",
+      "slice_type": "train_mining",
+      "byte_count": 1891,
+      "char_count": 651,
+      "line_count": 8,
+      "sha256_hash": "31c4605116c427646febeccba88ff1282252807e01d6f68c9c959befb19c9eed",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Burmese/Myanmar Mining Slice"
+    },
+    "my:held_out_eval": {
+      "language_code": "my",
+      "slice_type": "held_out_eval",
+      "byte_count": 2259,
+      "char_count": 787,
+      "line_count": 8,
+      "sha256_hash": "0b5d9e9be5ecc270a7bd7afcaf2717b255496cfd5b2af9f40a38d04045fadad7",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Burmese/Myanmar Held-Out Evaluation Slice"
+    },
+    "km:train_mining": {
+      "language_code": "km",
+      "slice_type": "train_mining",
+      "byte_count": 1783,
+      "char_count": 599,
+      "line_count": 8,
+      "sha256_hash": "03c19fc8e29d40059649ab7d72e4a4e648f937dcea3d7f9dd27523941a1fba54",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Khmer Mining Slice"
+    },
+    "km:held_out_eval": {
+      "language_code": "km",
+      "slice_type": "held_out_eval",
+      "byte_count": 2011,
+      "char_count": 675,
+      "line_count": 8,
+      "sha256_hash": "146fb81dd9903b4fce12356ad6302d60e61f68f0c4552d31ae042709daeac588",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Khmer Held-Out Evaluation Slice"
+    },
+    "lo:train_mining": {
+      "language_code": "lo",
+      "slice_type": "train_mining",
+      "byte_count": 1635,
+      "char_count": 555,
+      "line_count": 8,
+      "sha256_hash": "ae164676acc95dce998e8b3bb6d9aaabbf47dbedf267bfafe94feb4c362326cd",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Lao Mining Slice"
+    },
+    "lo:held_out_eval": {
+      "language_code": "lo",
+      "slice_type": "held_out_eval",
+      "byte_count": 1767,
+      "char_count": 599,
+      "line_count": 8,
+      "sha256_hash": "4426bbd5baf93391ad6b3276471f59fb3ef1d13c6a4a91a0d9ab447d1f500666",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Lao Held-Out Evaluation Slice"
+    },
+    "tl:train_mining": {
+      "language_code": "tl",
+      "slice_type": "train_mining",
+      "byte_count": 1147,
+      "char_count": 1147,
+      "line_count": 12,
+      "sha256_hash": "6e6a610cbcfb46267e7bffd11a7d3e96e694b9dda101de9577e1212348733760",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Filipino/Tagalog Mining Slice"
+    },
+    "tl:held_out_eval": {
+      "language_code": "tl",
+      "slice_type": "held_out_eval",
+      "byte_count": 943,
+      "char_count": 943,
+      "line_count": 8,
+      "sha256_hash": "bbc699bb49e3e438a5cee74a15558f7630f516d638975d827a5d05c022d2b320",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Filipino/Tagalog Held-Out Evaluation Slice"
+    },
+    "he:train_mining": {
+      "language_code": "he",
+      "slice_type": "train_mining",
+      "byte_count": 1555,
+      "char_count": 847,
+      "line_count": 12,
+      "sha256_hash": "f7048b8074c29a90d84fff3ba9e6296cf8b197c0bd7157026ef59672835e67d0",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hebrew Mining Slice"
+    },
+    "he:held_out_eval": {
+      "language_code": "he",
+      "slice_type": "held_out_eval",
+      "byte_count": 1175,
+      "char_count": 639,
+      "line_count": 8,
+      "sha256_hash": "d9d197bb2b87bfb7c9cd4de408095276ff89efc8eeddf1c9f7dfb94062858716",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hebrew Held-Out Evaluation Slice"
+    },
+    "el:train_mining": {
+      "language_code": "el",
+      "slice_type": "train_mining",
+      "byte_count": 1899,
+      "char_count": 1027,
+      "line_count": 12,
+      "sha256_hash": "2be134a5d5c88e9c96329e58eba98e3f06732b0e19c6eaeebf23408fd26bcbb0",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Greek Mining Slice"
+    },
+    "el:held_out_eval": {
+      "language_code": "el",
+      "slice_type": "held_out_eval",
+      "byte_count": 1435,
+      "char_count": 811,
+      "line_count": 8,
+      "sha256_hash": "ec86ecb2376cf23c36cb60a8fe879b3e99128c16c32c94a723ae015daa7d0543",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Greek Held-Out Evaluation Slice"
+    },
+    "hy:train_mining": {
+      "language_code": "hy",
+      "slice_type": "train_mining",
+      "byte_count": 1415,
+      "char_count": 751,
+      "line_count": 8,
+      "sha256_hash": "9b5061205d48d5144b6a837cd17ba750b9385c1ce05c596d0463fef3d12c603d",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Armenian Mining Slice"
+    },
+    "hy:held_out_eval": {
+      "language_code": "hy",
+      "slice_type": "held_out_eval",
+      "byte_count": 1519,
+      "char_count": 803,
+      "line_count": 8,
+      "sha256_hash": "5f87280debc87281783cfb34af0f614059d248d87711ddc91824a0ed43afb2e3",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Armenian Held-Out Evaluation Slice"
+    },
+    "ka:train_mining": {
+      "language_code": "ka",
+      "slice_type": "train_mining",
+      "byte_count": 1991,
+      "char_count": 719,
+      "line_count": 8,
+      "sha256_hash": "a97e270061867008655a6565e5ae20f27dedc83f884c92fa312bc777011fb1b9",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Georgian Mining Slice"
+    },
+    "ka:held_out_eval": {
+      "language_code": "ka",
+      "slice_type": "held_out_eval",
+      "byte_count": 2259,
+      "char_count": 811,
+      "line_count": 8,
+      "sha256_hash": "b222cf7602b4e491db13821c0a4afe867fd615136bb95a3b01e3d255badefab3",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Georgian Held-Out Evaluation Slice"
+    },
+    "am:train_mining": {
+      "language_code": "am",
+      "slice_type": "train_mining",
+      "byte_count": 1195,
+      "char_count": 451,
+      "line_count": 8,
+      "sha256_hash": "6dbd6dec373c0c670a2b0463ca1e608b9d77c252ae6e214f568900603514a379",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Amharic Mining Slice"
+    },
+    "am:held_out_eval": {
+      "language_code": "am",
+      "slice_type": "held_out_eval",
+      "byte_count": 1431,
+      "char_count": 535,
+      "line_count": 8,
+      "sha256_hash": "90cf0a8df5c84229617c62a32a5f9332fb7f7c9c8b4c0d296759d3c3a09c5706",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Amharic Held-Out Evaluation Slice"
+    },
+    "yo:train_mining": {
+      "language_code": "yo",
+      "slice_type": "train_mining",
+      "byte_count": 1027,
+      "char_count": 667,
+      "line_count": 8,
+      "sha256_hash": "336ed83a5cea321cf561d3d069dd3e35a6cf0d5537ceb1ef4d072d5869010428",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Yoruba Mining Slice"
+    },
+    "yo:held_out_eval": {
+      "language_code": "yo",
+      "slice_type": "held_out_eval",
+      "byte_count": 887,
+      "char_count": 743,
+      "line_count": 8,
+      "sha256_hash": "04b53f11b0afcf63ede26b67ea9a2eaf817f7acc439aecfe66fef24effbe7cf9",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Yoruba Held-Out Evaluation Slice"
+    },
+    "ha:train_mining": {
+      "language_code": "ha",
+      "slice_type": "train_mining",
+      "byte_count": 763,
+      "char_count": 763,
+      "line_count": 8,
+      "sha256_hash": "310ec00382f274d18e6f9f42a38359b7ada6cf70efb6ce05f2cd6b9ad87b86e8",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hausa Mining Slice"
+    },
+    "ha:held_out_eval": {
+      "language_code": "ha",
+      "slice_type": "held_out_eval",
+      "byte_count": 767,
+      "char_count": 759,
+      "line_count": 8,
+      "sha256_hash": "bc7f25aa35a9b288d8556b09923cd7cc6df780f663b509ed36853cd0cb44ea1c",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hausa Held-Out Evaluation Slice"
+    },
+    "zu:train_mining": {
+      "language_code": "zu",
+      "slice_type": "train_mining",
+      "byte_count": 787,
+      "char_count": 787,
+      "line_count": 8,
+      "sha256_hash": "29f96da1de3dc765a1c7c45a36340797f7b493f0cbdf3c10fe5670cc0d0140b4",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Zulu Mining Slice"
+    },
+    "zu:held_out_eval": {
+      "language_code": "zu",
+      "slice_type": "held_out_eval",
+      "byte_count": 815,
+      "char_count": 815,
+      "line_count": 8,
+      "sha256_hash": "cf827aa6090a49443aae8af424610a0f702086213bc3ed9bc49566238754fa23",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Zulu Held-Out Evaluation Slice"
+    },
+    "so:train_mining": {
+      "language_code": "so",
+      "slice_type": "train_mining",
+      "byte_count": 863,
+      "char_count": 863,
+      "line_count": 8,
+      "sha256_hash": "9057f544321d9375b464059557313c2b6191a2360ff6520188351f6d4ddeeeb6",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Somali Mining Slice"
+    },
+    "so:held_out_eval": {
+      "language_code": "so",
+      "slice_type": "held_out_eval",
+      "byte_count": 911,
+      "char_count": 911,
+      "line_count": 8,
+      "sha256_hash": "0b3e434c14a952fbd2cc3b7d534355ee2ce0e558e06b4cecda9ef4ffd48a5395",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Somali Held-Out Evaluation Slice"
+    },
+    "hi-Latn:train_mining": {
+      "language_code": "hi-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "6f7488301cfdeabd8c8bf14905e60974cef6ac6c693d7a469b1c8f730d6ab02b",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hinglish / Roman Hindi Mining Slice"
+    },
+    "hi-Latn:held_out_eval": {
+      "language_code": "hi-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "85c7862080bd6923f8dcf15bba30073008d16a20d8d0182e7eacfa12a7876b77",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hinglish / Roman Hindi Held-Out Evaluation Slice"
+    },
+    "ur-Latn:train_mining": {
+      "language_code": "ur-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "72f9f59b6ef61c6c2d54c10f14870a8caa370c129734445367248fa7cedc733a",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Urdu Mining Slice"
+    },
+    "ur-Latn:held_out_eval": {
+      "language_code": "ur-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "1a6861022d7d6f65c3e8be3880ae3dae10d2339affa569c638d98eaa844ace74",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Urdu Held-Out Evaluation Slice"
+    },
+    "te-Latn:train_mining": {
+      "language_code": "te-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "29761515c479f7941bf471f2c96c94b189352fa10ad043fda474491ee9658c4b",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Telugu Mining Slice"
+    },
+    "te-Latn:held_out_eval": {
+      "language_code": "te-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "92dcf24603891779743f617462e9af0820a0de621a04a381a8bc130d3157b729",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Telugu Held-Out Evaluation Slice"
+    },
+    "ta-Latn:train_mining": {
+      "language_code": "ta-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "227e1d9af837b793d8290efc8669f34bf71820a0e1643c5b717a993fe0983126",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Tanglish / Roman Tamil Mining Slice"
+    },
+    "ta-Latn:held_out_eval": {
+      "language_code": "ta-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "efd4ff08d51f551ce089453617893dfe42ac46b2de9cb6414b2f5c904a8a4337",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Tanglish / Roman Tamil Held-Out Evaluation Slice"
+    },
+    "kn-Latn:train_mining": {
+      "language_code": "kn-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "f3d0b6cd097bdaa18008483dc7a310d2ab3013abc406f6bdd0bbd9bcdad15186",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Kannada Mining Slice"
+    },
+    "kn-Latn:held_out_eval": {
+      "language_code": "kn-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "d7a6443c58508ad36bc9e2d34503d582c5870fee6f829a0d5f4ad26d45170fd5",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Kannada Held-Out Evaluation Slice"
+    },
+    "ml-Latn:train_mining": {
+      "language_code": "ml-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "1038094089e9b2507e5cf3aca648be5aaa73f63d75dde8159fe5cf78263bb831",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Malayalam Mining Slice"
+    },
+    "ml-Latn:held_out_eval": {
+      "language_code": "ml-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "f2ffac14370dd0c1a01fb20c637b29192d35812ebabe602593c4c440a57c4a40",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Malayalam Held-Out Evaluation Slice"
+    },
+    "bn-Latn:train_mining": {
+      "language_code": "bn-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "b16b717e5d669c68bae13f3cd846519c25ef68742b62cfe4d038588730fec67d",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Bengali Mining Slice"
+    },
+    "bn-Latn:held_out_eval": {
+      "language_code": "bn-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "85c0ba9734b021b8096af6570cc2ca75b5bc7df63934512153109479f62c7a7c",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Bengali Held-Out Evaluation Slice"
+    },
+    "ar-Latn:train_mining": {
+      "language_code": "ar-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "1a63c105798a79225d52e92ce97d852ad5501d5bb49be8c15085284faea76f38",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Arabizi / Roman Arabic Mining Slice"
+    },
+    "ar-Latn:held_out_eval": {
+      "language_code": "ar-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "f2bad5e5449083c80548b3db43196133d5b594d7d30f636196c11abfa14c8a40",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Arabizi / Roman Arabic Held-Out Evaluation Slice"
+    },
+    "fa-Latn:train_mining": {
+      "language_code": "fa-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "a43f5304057ddd7f953678cdcff7f54f5f3f60425da0ff3d8e9b4d2f15803151",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Persian (Fingilish) Mining Slice"
+    },
+    "fa-Latn:held_out_eval": {
+      "language_code": "fa-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "0839e67e69dd9db7504cd868f33f106960f308a2951986fc2e104ccde76e3193",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Persian (Fingilish) Held-Out Evaluation Slice"
+    },
+    "ru-Latn:train_mining": {
+      "language_code": "ru-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "2a36a08fc4c8222175ef1e7acb4a2344d38bbe3c376b21818d6ca0d0a85a4314",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Russian (Translit) Mining Slice"
+    },
+    "ru-Latn:held_out_eval": {
+      "language_code": "ru-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "517156af95426fba91f42f2653496f8e8355ba0eddb681edb2feb7739141cbab",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Russian (Translit) Held-Out Evaluation Slice"
+    },
+    "ja-Latn:train_mining": {
+      "language_code": "ja-Latn",
+      "slice_type": "train_mining",
+      "byte_count": 570,
+      "char_count": 570,
+      "line_count": 10,
+      "sha256_hash": "c9107f55c621f465db443bdb841c0865339647864f1f6655e0799c0a9ae77242",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Japanese (Romaji) Mining Slice"
+    },
+    "ja-Latn:held_out_eval": {
+      "language_code": "ja-Latn",
+      "slice_type": "held_out_eval",
+      "byte_count": 680,
+      "char_count": 680,
+      "line_count": 10,
+      "sha256_hash": "955cc5e86f4ced278385d037482ae9cab569f00bc51552e82034dd69a52045cb",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Roman Japanese (Romaji) Held-Out Evaluation Slice"
+    },
+    "cs-en-hi:train_mining": {
+      "language_code": "cs-en-hi",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "ae7d99d6fc806ab2aa9135ccec195d64b9b135d907b46f895f27d2035d16d65c",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Hindi (Mixed) Mining Slice"
+    },
+    "cs-en-hi:held_out_eval": {
+      "language_code": "cs-en-hi",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "6c2bef80411f430b871501fa3e7bade1f1338b9863ce7ad7afe29c2b2b7f8286",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Hindi (Mixed) Held-Out Evaluation Slice"
+    },
+    "cs-en-es:train_mining": {
+      "language_code": "cs-en-es",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "31ececdf40883ebae1fc08f07cf88e8366f49c1159e8a4e3789847c80240d63e",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Spanish (Spanglish) Mining Slice"
+    },
+    "cs-en-es:held_out_eval": {
+      "language_code": "cs-en-es",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "70753cc7394601849961ef595935e7f05869601fdf45c5cdc2142ccd3af486f1",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Spanish (Spanglish) Held-Out Evaluation Slice"
+    },
+    "cs-en-ar:train_mining": {
+      "language_code": "cs-en-ar",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "1289a68973ddf2d71e11d4cf8811b1accb2d99a2d502be18caf4f46380e310ce",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Arabic (Mixed) Mining Slice"
+    },
+    "cs-en-ar:held_out_eval": {
+      "language_code": "cs-en-ar",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "877464f8067a12ba55231e62a53c19ed6f861cf832b5299b5279ec40ec7373b3",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Arabic (Mixed) Held-Out Evaluation Slice"
+    },
+    "cs-en-ja:train_mining": {
+      "language_code": "cs-en-ja",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "7e2e56fc8145d3661afb5cc734db9f730dcfba7703b789db985757121a83db33",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Japanese (Mixed) Mining Slice"
+    },
+    "cs-en-ja:held_out_eval": {
+      "language_code": "cs-en-ja",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "a6877ab381f24e9e6d1657da727af0b01f4db4d72a21898b71ebc05a890cbad8",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Japanese (Mixed) Held-Out Evaluation Slice"
+    },
+    "cs-en-ko:train_mining": {
+      "language_code": "cs-en-ko",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "69eb3fee2fca2b583904b78b7045a1236f2dbc37b1f55570a728cf4760b2d418",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Korean (Mixed) Mining Slice"
+    },
+    "cs-en-ko:held_out_eval": {
+      "language_code": "cs-en-ko",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "a98b32e866cb6ed64b18107aa779cd9e67b547664b83dc541b2d655bffb32d31",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Korean (Mixed) Held-Out Evaluation Slice"
+    },
+    "cs-en-pt:train_mining": {
+      "language_code": "cs-en-pt",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "29f93a2ceb364028ed3786285252265b7d6bcd1a9bd33ed89d270b0938cafd7c",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Portuguese (Mixed) Mining Slice"
+    },
+    "cs-en-pt:held_out_eval": {
+      "language_code": "cs-en-pt",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "2bac90e1622d668d10145bc00cf385ee673ae19dd4781ce4db4690582777d830",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "English + Portuguese (Mixed) Held-Out Evaluation Slice"
+    },
+    "cs-hi-en:train_mining": {
+      "language_code": "cs-hi-en",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "513a69977a810aae1b02ab2828642403cda14961c33225928099e219cee8055d",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hindi + English (Devanagari+Latin) Mining Slice"
+    },
+    "cs-hi-en:held_out_eval": {
+      "language_code": "cs-hi-en",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "84eac43749163e2897b01791497d2b4a0e32211b7e62da9c8bac5088ffe1198c",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Hindi + English (Devanagari+Latin) Held-Out Evaluation Slice"
+    },
+    "cs-ta-en:train_mining": {
+      "language_code": "cs-ta-en",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "626b3e564facb27d48bf5f38efbf0027475aa4c09ddfae0bfa4b7e1056837253",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Tamil + English (Tamil+Latin) Mining Slice"
+    },
+    "cs-ta-en:held_out_eval": {
+      "language_code": "cs-ta-en",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "3448b340cd9e8320685d7d051c4e13833555d69c6b807e27b84cc7b51cda83a3",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Tamil + English (Tamil+Latin) Held-Out Evaluation Slice"
+    },
+    "cs-te-en:train_mining": {
+      "language_code": "cs-te-en",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "a0745a07c4bb480ffc4eef4aef9115b501024b5a3e721d59f39c2e55048bae41",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Telugu + English (Telugu+Latin) Mining Slice"
+    },
+    "cs-te-en:held_out_eval": {
+      "language_code": "cs-te-en",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "c15ec12ccb903fc6ad9c6f49130b5a3d1272428f055300b8eba55ee8e21d49f8",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Telugu + English (Telugu+Latin) Held-Out Evaluation Slice"
+    },
+    "cs-ar-fr:train_mining": {
+      "language_code": "cs-ar-fr",
+      "slice_type": "train_mining",
+      "byte_count": 580,
+      "char_count": 580,
+      "line_count": 10,
+      "sha256_hash": "cea9648a716858e4528b898a2ba9eaf4f7ead165c6341667573db88888d118a7",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Arabic + French (Franco-Arabe) Mining Slice"
+    },
+    "cs-ar-fr:held_out_eval": {
+      "language_code": "cs-ar-fr",
+      "slice_type": "held_out_eval",
+      "byte_count": 690,
+      "char_count": 690,
+      "line_count": 10,
+      "sha256_hash": "6a5c6f780b08e0007a064eee5968c2f5216693ac540c93b13a8c4cc259eafe52",
+      "source": "AGLM-Multilingual-Benchmark-v1",
+      "description": "Arabic + French (Franco-Arabe) Held-Out Evaluation Slice"
+    }
+  }
+}

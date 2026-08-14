@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGLM Universal Tokenizer Inspector — Live 3-Way Split Workbench</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+      <div class="brand">
+        <div class="logo-icon">⚡</div>
+        <div>
+          <h1 class="logo-title">AGLM Tokenizer Inspector</h1>
+          <p class="logo-subtitle">Universal Multilingual Tokenizer • Live 3-Way Split Screen Workbench</p>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <div class="split-mode-selector">
+          <button id="modeSplit3Btn" class="mode-tab active" data-mode="3way">⚡ 3-Way Split (AGLM vs GPT-4o vs Gemma 2)</button>
+          <button id="modeSplit4Btn" class="mode-tab" data-mode="4way">🌐 4-Way (+ AGLM 256K)</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Quick Preset Buttons -->
+    <section class="presets-section">
+      <span class="presets-label">Quick Samples:</span>
+      <div class="preset-chips">
+        <button class="preset-btn" data-lang="hi">🇮🇳 Hindi</button>
+        <button class="preset-btn" data-lang="hinglish">🇮🇳 Hinglish</button>
+        <button class="preset-btn" data-lang="te">🇮🇳 Telugu</button>
+        <button class="preset-btn" data-lang="tenglish">🇮🇳 Tenglish</button>
+        <button class="preset-btn" data-lang="ta">🇮🇳 Tamil</button>
+        <button class="preset-btn" data-lang="tanglish">🇮🇳 Tanglish</button>
+        <button class="preset-btn" data-lang="kn">🇮🇳 Kannada</button>
+        <button class="preset-btn" data-lang="kanglish">🇮🇳 Kanglish</button>
+        <button class="preset-btn" data-lang="ml">🇮🇳 Malayalam</button>
+        <button class="preset-btn" data-lang="manglish">🇮🇳 Manglish</button>
+        <button class="preset-btn" data-lang="code">💻 Python Code</button>
+        <button class="preset-btn" data-lang="en">🇬🇧 English</button>
+      </div>
+    </section>
+
+    <!-- Main Workspace Grid -->
+    <main class="workspace-grid">
+      
+      <!-- Input Panel -->
+      <div class="card input-card">
+        <div class="card-header">
+          <div class="input-title-wrap">
+            <h2 class="card-title">Prompt & Input Text</h2>
+            <span class="input-subtitle">Type or paste any text to see simultaneous split-screen tokenization across all 3 models in real-time</span>
+          </div>
+          <div class="input-stats-header">
+            <span id="charCountBadge">0 characters</span>
+            <span class="dot-separator">•</span>
+            <span id="byteCountBadge">0 bytes (UTF-8)</span>
+            <button id="clearInputBtn" class="btn-text">Clear</button>
+          </div>
+        </div>
+        <textarea id="mainTextInput" class="text-input" placeholder="Type or paste any Hindi, Dravidian, Romanized Indic sentence, or code here to inspect split-screen tokenization in real-time..."></textarea>
+      </div>
+
+      <!-- Comparative Live Scoreboard (Hero Winner Bar) -->
+      <section id="winnerScoreboard" class="winner-scoreboard">
+        <div class="scoreboard-main">
+          <div class="scoreboard-trophy">🏆</div>
+          <div>
+            <div class="scoreboard-title" id="scoreboardWinnerTitle">AGLM Universal Tokenizer Achieves Optimal Density</div>
+            <div class="scoreboard-desc" id="scoreboardSavingsSummary">Comparing tokenization density against OpenAI GPT-4o & Google Gemma 2...</div>
+          </div>
+        </div>
+        <div class="scoreboard-metrics" id="scoreboardMetricsPills">
+          <div class="metric-pill pill-aglm">
+            <span class="pill-label">AGLM 1.55M</span>
+            <span class="pill-val" id="pillAglmVal">-- toks</span>
+          </div>
+          <div class="metric-pill pill-openai">
+            <span class="pill-label">OpenAI GPT-4o</span>
+            <span class="pill-val" id="pillOpenaiVal">-- toks</span>
+          </div>
+          <div class="metric-pill pill-gemma">
+            <span class="pill-label">Google Gemma 2</span>
+            <span class="pill-val" id="pillGemmaVal">-- toks</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- HERO SPLIT-SCREEN WORKBENCH -->
+      <section class="split-workbench-section">
+        
+        <div id="splitGridContainer" class="split-grid split-3col">
+          
+          <!-- Column 1: AGLM Universal 1M / Max (Ours) -->
+          <div class="split-column card-aglm-hero">
+            <div class="split-col-header">
+              <div class="col-brand">
+                <span class="brand-badge-winner">👑 #1 WINNER</span>
+                <h3 class="col-title">AGLM Universal Max</h3>
+                <span class="col-meta">Vocab: 1,551,017 • Ours</span>
+              </div>
+              <div class="col-metrics">
+                <div class="stat-main" id="aglmTokenCount">0</div>
+                <div class="stat-unit">tokens (<span id="aglmBpt">0.00</span> B/T)</div>
+              </div>
+            </div>
+
+            <div class="split-savings-banner" id="aglmSavingsBanner">
+              ⚡ Best-in-class Indian language tokenization
+            </div>
+
+            <div class="col-view-toolbar">
+              <span class="col-view-label">Token Chips:</span>
+              <button class="btn btn-sm btn-outline copy-col-btn" data-target="aglm_1m">📋 Copy IDs</button>
+            </div>
+
+            <div class="split-chips-container" id="aglmChipsBox">
+              <div class="empty-state">Type above to tokenize</div>
+            </div>
+          </div>
+
+          <!-- Column 2: OpenAI GPT-4o (o200k_base) -->
+          <div class="split-column card-openai-hero">
+            <div class="split-col-header">
+              <div class="col-brand">
+                <span class="brand-badge-standard">🤖 OPENAI BASELINE</span>
+                <h3 class="col-title">OpenAI GPT-4o</h3>
+                <span class="col-meta">Vocab: 200,019 • o200k_base</span>
+              </div>
+              <div class="col-metrics">
+                <div class="stat-main" id="openaiTokenCount">0</div>
+                <div class="stat-unit">tokens (<span id="openaiBpt">0.00</span> B/T)</div>
+              </div>
+            </div>
+
+            <div class="split-savings-banner banner-openai" id="openaiDiffBanner">
+              OpenAI Production Multimodal Tokenizer
+            </div>
+
+            <div class="col-view-toolbar">
+              <span class="col-view-label">Token Chips:</span>
+              <button class="btn btn-sm btn-outline copy-col-btn" data-target="o200k_base">📋 Copy IDs</button>
+            </div>
+
+            <div class="split-chips-container" id="openaiChipsBox">
+              <div class="empty-state">Type above to tokenize</div>
+            </div>
+          </div>
+
+          <!-- Column 3: Google Gemma 2 (256k) -->
+          <div class="split-column card-gemma-hero">
+            <div class="split-col-header">
+              <div class="col-brand">
+                <span class="brand-badge-gemma">💎 GOOGLE GEMMA 2</span>
+                <h3 class="col-title">Google Gemma 2</h3>
+                <span class="col-meta">Vocab: 256,000 • SentencePiece</span>
+              </div>
+              <div class="col-metrics">
+                <div class="stat-main" id="gemmaTokenCount">0</div>
+                <div class="stat-unit">tokens (<span id="gemmaBpt">0.00</span> B/T)</div>
+              </div>
+            </div>
+
+            <div class="split-savings-banner banner-gemma" id="gemmaDiffBanner">
+              Google Gemma 2 9B SentencePiece Tokenizer
+            </div>
+
+            <div class="col-view-toolbar">
+              <span class="col-view-label">Token Chips:</span>
+              <button class="btn btn-sm btn-outline copy-col-btn" data-target="gemma2">📋 Copy IDs</button>
+            </div>
+
+            <div class="split-chips-container" id="gemmaChipsBox">
+              <div class="empty-state">Type above to tokenize</div>
+            </div>
+          </div>
+
+          <!-- Column 4 (Optional 4-way): AGLM 256K -->
+          <div class="split-column card-aglm256-hero" id="aglm256Col" style="display: none;">
+            <div class="split-col-header">
+              <div class="col-brand">
+                <span class="brand-badge-aglm256">⚡ 256K TIER</span>
+                <h3 class="col-title">AGLM Universal 256K</h3>
+                <span class="col-meta">Vocab: 256,000 • Compact Tier</span>
+              </div>
+              <div class="col-metrics">
+                <div class="stat-main" id="aglm256TokenCount">0</div>
+                <div class="stat-unit">tokens (<span id="aglm256Bpt">0.00</span> B/T)</div>
+              </div>
+            </div>
+
+            <div class="split-savings-banner banner-aglm256" id="aglm256DiffBanner">
+              Compact 256K Balanced Production Tier
+            </div>
+
+            <div class="col-view-toolbar">
+              <span class="col-view-label">Token Chips:</span>
+              <button class="btn btn-sm btn-outline copy-col-btn" data-target="aglm_256k">📋 Copy IDs</button>
+            </div>
+
+            <div class="split-chips-container" id="aglm256ChipsBox">
+              <div class="empty-state">Type above to tokenize</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Token Inspector Popover / Tooltip -->
+    <div id="tokenInspectorTooltip" class="token-tooltip" style="display: none;">
+      <div class="tooltip-header">
+        <span id="tooltipTokenId" class="tooltip-id">#0</span>
+        <span id="tooltipScript" class="tooltip-script">Script</span>
+      </div>
+      <div class="tooltip-body">
+        <div class="tooltip-row">
+          <span class="tooltip-key">Text:</span>
+          <span id="tooltipText" class="tooltip-val font-mono">""</span>
+        </div>
+        <div class="tooltip-row">
+          <span class="tooltip-key">Hex:</span>
+          <span id="tooltipHex" class="tooltip-val font-mono">0x00</span>
+        </div>
+        <div class="tooltip-row">
+          <span class="tooltip-key">Bytes:</span>
+          <span id="tooltipByteLen" class="tooltip-val">0 bytes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>AGLM Universal Tokenizer Inspector • Full-Capacity 1.55M+ Universe vs OpenAI GPT-4o & Google Gemma 2 • Localhost Active</p>
+    </footer>
+
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

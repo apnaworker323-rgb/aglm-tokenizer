@@ -1,0 +1,39 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Large raw uncompressed cache datasets (>100MB)
+# Note: Models are distributed via aglm_vocab.json.gz (<30MB)
+canonical_pool_results/CANONICAL_TOKEN_POOL.jsonl
+exported_tokenizers/*/aglm_vocab.json
