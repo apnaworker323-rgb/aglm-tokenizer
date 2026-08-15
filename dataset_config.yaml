@@ -1,0 +1,39 @@
+# AGLM Production Dataset Builder Configuration
+# Designed for 100MB samples up to 20 TB full-corpus training datasets
+
+tokenizer:
+  path: "exported_tokenizers/aglm_universal_max"
+  expected_vocab_size: 1551017
+  expected_max_id: 1551016
+  dtype: "uint32"
+  bits_per_token: 21
+  eos_token_id: 258
+  bos_token_id: 257
+
+sharding:
+  shard_tokens: 50000000        # 50M tokens per shard (~200MB uint32 file)
+  val_ratio: 0.005              # 0.5% validation split (deterministic by document hash)
+  save_clean_text: false        # Do not duplicate raw text to disk on multi-TB runs
+  enable_packed21: false        # Optional 21-bit packed storage alongside uint32
+
+extraction:
+  text_fields:
+    - "text"
+    - "content"
+    - "body"
+    - "document"
+    - "response"
+    - "prompt"
+    - "question"
+    - "answer"
+    - "messages"
+  min_doc_chars: 10
+  max_doc_chars: 5000000
+  dedupe_exact: true
+  document_separator: "<|eos|>"
+
+performance:
+  workers: 4
+  buffer_tokens: 1000000        # Tokens in RAM buffer before flushing to shard
+  log_interval_seconds: 5.0
+  fsync_shards: true
