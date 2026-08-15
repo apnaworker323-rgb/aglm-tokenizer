@@ -53,34 +53,35 @@ def extract_pdf_stream(pdf_path: str) -> Generator[str, None, None]:
 
 
 def read_text_stream(file_path: str) -> Generator[str, None, None]:
-    """Streams lines or documents from a TXT / MD / JSONL file."""
+    """Streams large text blocks from a TXT / MD / JSONL file at high throughput."""
     ext = os.path.splitext(file_path)[1].lower()
     try:
         with open(file_path, "r", encoding="utf-8", errors="replace") as f:
             if ext == ".jsonl":
+                chunk = []
                 for line in f:
                     line = line.strip()
                     if line:
                         try:
                             obj = json.loads(line)
-                            # Look for text field
                             text = obj.get("text") or obj.get("content") or str(obj)
                             if len(text.strip()) > 0:
-                                yield text.strip()
+                                chunk.append(text.strip())
+                                if len(chunk) >= 100:
+                                    yield "\n".join(chunk)
+                                    chunk = []
                         except json.JSONDecodeError:
-                            yield line
-            else:
-                chunk = []
-                for line in f:
-                    line_str = line.strip()
-                    if line_str:
-                        chunk.append(line_str)
-                        # Yield in manageable paragraph blocks
-                        if len(chunk) >= 50:
-                            yield "\n".join(chunk)
-                            chunk = []
+                            chunk.append(line)
                 if chunk:
                     yield "\n".join(chunk)
+            else:
+                # Fast 1MB block stream for huge TXT files
+                block_size = 1024 * 1024  # 1 MB block
+                while True:
+                    block = f.read(block_size)
+                    if not block:
+                        break
+                    yield block
     except Exception as e:
         print(f"[WARNING] Error reading text file {file_path}: {e}")
 
@@ -125,6 +126,17 @@ def convert_dataset(
         print(f"[ERROR] No valid PDF or TXT files found at: {input_path}")
         return {}
 
+    # Load AGLM Universal Subword Tokenizer
+    tokenizer_engine = None
+    try:
+        from aglm_tokenizer.core.tokenizer import AGLMUniversalTokenizer
+        vocab_dir = "exported_tokenizers/aglm_universal_256k"
+        if os.path.exists(os.path.join(vocab_dir, "aglm_vocab.json.gz")):
+            tokenizer_engine = AGLMUniversalTokenizer.load(vocab_dir)
+            print(f"[INFO] Loaded AGLM Subword Tokenizer ({tokenizer_engine.vocab_size:,} subword tokens)")
+    except Exception as e:
+        print(f"[INFO] Running in fallback byte tokenizer mode: {e}")
+
     print("=" * 90)
     print("AGLM UNIVERSAL DATASET CONVERTER & TOKENIZER")
     print("=" * 90)
@@ -167,7 +179,6 @@ def convert_dataset(
             file_docs = 0
             file_tokens = 0
             file_bytes = 0
-
             buffer_toks = []
 
             for doc_text in stream:
@@ -176,7 +187,12 @@ def convert_dataset(
 
                 raw_b = doc_text.encode("utf-8")
                 n_b = len(raw_b)
-                toks = list(raw_b)  # Byte-level token representation
+
+                # Real Subword BPE Tokenization using AGLM Vocabulary
+                if tokenizer_engine is not None:
+                    toks = tokenizer_engine.encode(doc_text)
+                else:
+                    toks = list(raw_b)
 
                 file_docs += 1
                 file_bytes += n_b
@@ -200,7 +216,7 @@ def convert_dataset(
                     val_tokens_count += (len(arr) - split)
                     buffer_toks = []
 
-                if (total_tokens + file_tokens) >= max_tokens:
+                if max_tokens > 0 and (total_tokens + file_tokens) >= max_tokens:
                     print("(Cap Reached)", end=" ")
                     break
 
@@ -227,9 +243,9 @@ def convert_dataset(
                 "compression": round(file_bytes / max(1, file_tokens), 2)
             })
 
-            print(f"DONE ({file_docs:,} docs | {file_tokens:,} tokens | {file_bytes / (1024*1024):.2f} MB)")
+            print(f"DONE ({file_docs:,} chunks | {file_tokens:,} tokens | {file_bytes / (1024*1024):.2f} MB)")
 
-            if total_tokens >= max_tokens:
+            if max_tokens > 0 and total_tokens >= max_tokens:
                 print(f"[INFO] Reached requested max_tokens limit ({max_tokens:,}). Stopping.")
                 break
 
