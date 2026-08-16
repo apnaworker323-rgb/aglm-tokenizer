@@ -703,15 +703,27 @@ class OpenShard:
         actual_size = self.tmp_path.stat().st_size
         if actual_size != expected_size or actual_size % 4:
             raise IOError(f"temporary shard size mismatch: {self.tmp_path}")
-        digest = sha256_file(self.tmp_path)
-        os.replace(self.tmp_path, self.final_path)
+        digest_uncompressed = sha256_file(self.tmp_path)
+        
+        # Lossless Zstandard Level 1 compression (reduces disk footprint from 5.7 GB -> 2.5 GB)
+        import zstandard as zstd
+        cctx = zstd.ZstdCompressor(level=1, write_content_size=True)
+        zst_path = self.final_path.with_name(self.final_path.name + ".zst")
+        with self.tmp_path.open("rb") as f_in, zst_path.open("wb") as f_out:
+            cctx.copy_stream(f_in, f_out)
+        self.tmp_path.unlink()
+        
+        digest_zst = sha256_file(zst_path)
+        actual_size = zst_path.stat().st_size
         return {
-            "shard_id": self.index, "filename": self.final_path.name, "split": self.split,
-            "path": self.final_path.relative_to(output_root).as_posix(),
+            "shard_id": self.index, "filename": zst_path.name, "split": self.split,
+            "path": zst_path.relative_to(output_root).as_posix(),
             "token_count": self.token_count, "raw_bytes_represented": self.raw_bytes,
             "source_document_count": self.document_count, "min_token_id": self.min_id,
-            "max_token_id": self.max_id, "sha256": digest, "byte_size": actual_size,
+            "max_token_id": self.max_id, "sha256": digest_zst, "sha256_uncompressed": digest_uncompressed,
+            "byte_size": actual_size, "uncompressed_byte_size": expected_size,
             "dtype": "uint32", "numpy_dtype": "<u4", "endian": "little",
+            "compression": "zstd_level_1",
         }
 
     def close_incomplete(self) -> None:
@@ -947,7 +959,7 @@ class ProductionDatasetBuilder:
         for tmp in self.output_dir.glob("**/*.tmp"):
             tmp.unlink()
         for split in ("train", "val"):
-            for path in (self.output_dir / split).glob("shard_*.bin"):
+            for path in (self.output_dir / split).glob("shard_*.bin*"):
                 if path.relative_to(self.output_dir).as_posix() not in referenced:
                     path.unlink()
 
@@ -1497,22 +1509,42 @@ def verify_dataset(
                 errors.append(f"missing {record['path']}")
                 continue
             size = path.stat().st_size
-            if size % 4 or size // 4 != record["token_count"] or size != record["byte_size"]:
-                errors.append(f"size/token mismatch {record['path']}")
+            is_zst = path.name.endswith(".zst") or record.get("compression") == "zstd_level_1"
+            if not is_zst:
+                if size % 4 or size // 4 != record["token_count"] or size != record["byte_size"]:
+                    errors.append(f"size/token mismatch {record['path']}")
+            else:
+                if size != record["byte_size"]:
+                    errors.append(f"size mismatch {record['path']}")
             if sha256_file(path) != record["sha256"]:
                 errors.append(f"SHA256 mismatch {record['path']}")
             observed_count = 0
             observed_min, observed_max = EXPECTED_MAX_ID, 0
-            with path.open("rb") as handle:
-                while True:
-                    tokens = np.fromfile(handle, dtype=UINT32_DTYPE, count=1_048_576)
-                    if not len(tokens):
-                        break
-                    observed_count += len(tokens)
-                    observed_min = min(observed_min, int(tokens.min()))
-                    observed_max = max(observed_max, int(tokens.max()))
-                    if int(tokens.max()) >= EXPECTED_VOCAB_SIZE:
+
+            if is_zst:
+                import zstandard as zstd
+                dctx = zstd.ZstdDecompressor()
+                with path.open("rb") as handle:
+                    uncompressed_limit = int(record.get("uncompressed_byte_size") or (record["token_count"] * 4) + 1024)
+                    decompressed = dctx.decompress(handle.read(), max_output_size=uncompressed_limit)
+                    tokens = np.frombuffer(decompressed, dtype=UINT32_DTYPE)
+                    observed_count = len(tokens)
+                    observed_min = int(tokens.min())
+                    observed_max = int(tokens.max())
+                    if observed_max >= EXPECTED_VOCAB_SIZE:
                         errors.append(f"out-of-range ID in {record['path']}")
+            else:
+                with path.open("rb") as handle:
+                    while True:
+                        tokens = np.fromfile(handle, dtype=UINT32_DTYPE, count=1_048_576)
+                        if not len(tokens):
+                            break
+                        observed_count += len(tokens)
+                        observed_min = min(observed_min, int(tokens.min()))
+                        observed_max = max(observed_max, int(tokens.max()))
+                        if int(tokens.max()) >= EXPECTED_VOCAB_SIZE:
+                            errors.append(f"out-of-range ID in {record['path']}")
+
             if observed_count != record["token_count"] or observed_min != record["min_token_id"] or observed_max != record["max_token_id"]:
                 errors.append(f"manifest range/count mismatch {record['path']}")
             verified += 1

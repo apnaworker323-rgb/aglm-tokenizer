@@ -1,0 +1,9 @@
+{
+  "model_name": "AGLM-Universal-Core-Clean",
+  "vocab_size": 1664378,
+  "algorithm": "Byte-Level BPE with Code-Aware Longest-Prefix Match Trie",
+  "byte_fallback": "Guaranteed 256 byte tokens (0x00-0xFF)",
+  "pruning": "Removed Chinese/CJK and Cyrillic/Russian tokens; retained English, Code, Indic, and Byte Fallback",
+  "sha256": "8f997ceffa1b24fd0de45427d3807001b092280fd29557054a1a1b0b8ee898f9",
+  "export_timestamp": "2026-08-16T15:13:09Z"
+}

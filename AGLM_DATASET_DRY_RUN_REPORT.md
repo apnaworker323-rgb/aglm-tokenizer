@@ -1,16 +1,16 @@
 # AGLM Dataset Dry-Run Report
 
-Generated: 2026-08-15T07:24:31.483743+00:00
+Generated: 2026-08-16T14:59:50.801729+00:00
 
 - Mode: authorized full conversion
-- Raw UTF-8 bytes tokenized: 7,269,913,402
-- Documents written: 6,937
-- Tokens: 1,479,404,911
-- Raw bytes/token: 4.914079538296193
-- Train shards: 15
-- Validation shards: 13
-- Raw tokenization throughput: 9.857 MiB/s
-- Peak aggregate worker RSS: 3786.7 MiB
+- Raw UTF-8 bytes tokenized: 7,425,850,132
+- Documents written: 7,089
+- Tokens: 1,516,817,569
+- Raw bytes/token: 4.895677821622067
+- Train shards: 16
+- Validation shards: 14
+- Raw tokenization throughput: 971.432 MiB/s
+- Peak aggregate worker RSS: 4741.7 MiB
 - Verification: PASSED
 
 This report records measurements from this run; no rate is hard-coded from an earlier prototype.
