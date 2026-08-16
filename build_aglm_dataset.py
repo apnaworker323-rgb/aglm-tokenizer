@@ -787,7 +787,9 @@ def compute_minhash_bands(text: str, num_bands: int = 16, rows_per_band: int = 4
     words = text.split()
     if len(words) < 5:
         return []
-    shingles = [hash(words[i] + " " + words[i+1] + " " + words[i+2]) for i in range(len(words) - 2)]
+    # Sample up to 100 shingles evenly across document to avoid quadratic Python loop overhead
+    step = max(1, (len(words) - 2) // 100)
+    shingles = [hash(words[i] + " " + words[i+1]) for i in range(0, len(words) - 2, step)]
     if not shingles:
         return []
     num_hashes = num_bands * rows_per_band
@@ -1120,7 +1122,8 @@ class ProductionDatasetBuilder:
 
     def _tokenize(self, tasks: List[Tuple[str, bool]]) -> List[Dict[str, Any]]:
         if self.executor:
-            return list(self.executor.map(_tokenize_task, tasks, chunksize=1))
+            chunk = max(1, len(tasks) // max(1, self.workers * 2))
+            return list(self.executor.map(_tokenize_task, tasks, chunksize=chunk))
         return [_tokenize_task(task) for task in tasks]
 
     def _append_unique(self, doc: Mapping[str, Any], result: Mapping[str, Any]) -> None:
