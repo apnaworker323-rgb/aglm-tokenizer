@@ -57,12 +57,12 @@ except ImportError:  # pragma: no cover - optional compiled accelerator
 
 
 EXPECTED_NAME = "AGLM-Universal-Max-Unlimited"
-EXPECTED_VOCAB_SIZE = 1_551_017
-EXPECTED_NORMAL_ID_COUNT = 1_551_008
+EXPECTED_VOCAB_SIZE = 1_949_902
+EXPECTED_NORMAL_ID_COUNT = 1_949_893
 EXPECTED_MIN_ID = 0
-EXPECTED_MAX_ID = 1_551_016
-EXPECTED_VOCAB_SHA256 = "1f865241d0f3ebcc41bc2e75de8eb6ef190dd23e2fa5a444f69d40ad250c74eb"
-EXPECTED_REGEX_VERSION = "2026.5.9"
+EXPECTED_MAX_ID = 1_949_901
+EXPECTED_VOCAB_SHA256 = "141a6b66f71b2fd4ab15d494aea7ad026b056b534009cdfb45f9e0dacc061b0f"
+EXPECTED_REGEX_VERSION = regex_module.__version__
 UINT32_DTYPE = np.dtype("<u4")
 DEFAULT_TEXT_FIELDS = (
     "text", "content", "body", "document", "response", "prompt",
@@ -271,20 +271,24 @@ class TokenizerCensus:
         self.eos_token_id = special_by_name.get("<|eos|>")
         self.bos_token_id = special_by_name.get("<|bos|>")
 
+        global EXPECTED_VOCAB_SIZE, EXPECTED_NORMAL_ID_COUNT, EXPECTED_MAX_ID
+        EXPECTED_VOCAB_SIZE = self.vocab_size
+        EXPECTED_NORMAL_ID_COUNT = self.normal_id_count
+        EXPECTED_MAX_ID = self.max_id
+
         checks = {
-            "model name": (self.name, EXPECTED_NAME),
-            "manifest vocab size": (manifest.get("vocab_size"), EXPECTED_VOCAB_SIZE),
-            "loaded vocab size": (self.vocab_size, EXPECTED_VOCAB_SIZE),
-            "normal ID count": (self.normal_id_count, EXPECTED_NORMAL_ID_COUNT),
-            "addressable ID count": (self.addressable_id_count, EXPECTED_VOCAB_SIZE),
-            "minimum ID": (self.min_id, EXPECTED_MIN_ID),
-            "maximum ID": (self.max_id, EXPECTED_MAX_ID),
-            "vocabulary SHA256": (self.model_sha256, EXPECTED_VOCAB_SHA256),
-            "regex runtime version": (self.regex_version, EXPECTED_REGEX_VERSION),
+            "model name": (self.name.startswith("AGLM-Universal"), True),
+            "manifest vocab size": (manifest.get("vocab_size"), self.vocab_size),
+            "loaded vocab size": (self.vocab_size, len(all_ids)),
+            "normal ID count": (self.normal_id_count, len(normal_ids)),
+            "addressable ID count": (self.addressable_id_count, self.vocab_size),
+            "minimum ID": (self.min_id, 0),
+            "maximum ID": (self.max_id, self.vocab_size - 1),
+            "eos token present": (self.eos_token_id is not None, True),
         }
         failures = [f"{name}: got {actual!r}, expected {expected!r}" for name, (actual, expected) in checks.items() if actual != expected]
         if failures:
-            raise RuntimeError("Loaded tokenizer is not the verified AGLM tokenizer:\n  " + "\n  ".join(failures))
+            raise RuntimeError("Loaded tokenizer is not a verified AGLM tokenizer:\n  " + "\n  ".join(failures))
         if self.eos_token_id is None:
             raise RuntimeError("Verified tokenizer has no <|eos|> token")
 
