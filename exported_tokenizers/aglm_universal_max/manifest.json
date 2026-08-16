@@ -1,6 +1,6 @@
 {
   "model_name": "AGLM-Universal-Max-Unlimited",
-  "vocab_size": 1848095,
+  "vocab_size": 1876701,
   "algorithm": "Byte-Level BPE with Code-Aware Longest-Prefix Match Trie",
   "byte_fallback": "Guaranteed 256 byte tokens (0x00-0xFF)",
   "unified_sources": [
@@ -16,7 +16,8 @@
     "Empirical High-Frequency Word Bigrams (+64,544 tokens)",
     "Universal 2-to-5 Gram Multiword Superwords (+24,341 tokens)",
     "High-Leverage Reasoning, Code, LaTeX & Indic Superwords (+48,789 tokens)",
-    "Hugging Face GitHub Code & English Knowledge Superwords (+159,404 tokens)"
+    "Hugging Face GitHub Code & English Knowledge Superwords (+159,404 tokens)",
+    "English Grammar Books & Multilingual Syntax Superwords (+28,606 tokens)"
   ],
-  "export_timestamp": "2026-08-16T10:35:16.352790+00:00"
+  "export_timestamp": "2026-08-16T10:41:56.757184+00:00"
 }
