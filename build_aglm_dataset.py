@@ -782,6 +782,28 @@ def _derive_packed21(output_root: Path, shard: Mapping[str, Any]) -> Dict[str, A
     }
 
 
+def compute_minhash_bands(text: str, num_bands: int = 16, rows_per_band: int = 4) -> List[int]:
+    """Computes fast 64-hash MinHash LSH band keys for near-deduplication (Jaccard >= 0.75)."""
+    words = text.split()
+    if len(words) < 5:
+        return []
+    shingles = [hash(words[i] + " " + words[i+1] + " " + words[i+2]) for i in range(len(words) - 2)]
+    if not shingles:
+        return []
+    num_hashes = num_bands * rows_per_band
+    min_hashes = [float("inf")] * num_hashes
+    for s in shingles:
+        for h_idx in range(num_hashes):
+            h = (s * (h_idx * 10007 + 1) + (h_idx * 31337 + 7)) & 0xFFFFFFFFFFFFFFFF
+            if h < min_hashes[h_idx]:
+                min_hashes[h_idx] = h
+    band_keys = []
+    for b in range(num_bands):
+        band_slice = tuple(min_hashes[b * rows_per_band : (b + 1) * rows_per_band])
+        band_keys.append(hash((b, band_slice)))
+    return band_keys
+
+
 class ProductionDatasetBuilder:
     """Streaming builder with SQLite-authoritative, shard-boundary checkpoints."""
 
@@ -789,6 +811,7 @@ class ProductionDatasetBuilder:
         self, input_dir: str, output_dir: str, tokenizer_census: TokenizerCensus,
         shard_tokens: int = 100_000_000, val_ratio: float = 0.005,
         dedupe_exact: bool = False, enable_packed21: bool = False,
+        minhash_dedup: bool = True, quality_pruning: bool = True,
         text_fields: Optional[List[str]] = None, sample_mb: Optional[int] = None,
         dry_run: bool = False, resume: bool = False, workers: int = 1,
         text_chunk_bytes: int = 1 << 20, max_document_bytes: int = 64 << 20,
@@ -809,6 +832,9 @@ class ProductionDatasetBuilder:
         self.val_ratio = float(val_ratio)
         self.dedupe_exact = dedupe_exact
         self.enable_packed21 = enable_packed21
+        self.minhash_dedup = minhash_dedup
+        self.quality_pruning = quality_pruning
+        self.minhash_seen: Set[int] = set()
         self.text_fields = list(text_fields or DEFAULT_TEXT_FIELDS)
         self.sample_bytes = sample_mb * (1 << 20) if sample_mb else None
         self.sample_mb = sample_mb
@@ -1055,10 +1081,31 @@ class ProductionDatasetBuilder:
         counts = Counter(sample)
         repetition = (max(counts.values()) / len(sample)) if sample else 0.0
         nul_ratio = sample.count(0) / len(sample) if sample else 0.0
+
+        is_repetitive_trigram = False
+        is_symbol_heavy = False
+        is_too_short = 0 < len(raw) < self.short_document_bytes
+
+        if self.quality_pruning and text:
+            words = text.split()
+            word_count = len(words)
+            if word_count >= 15:
+                trigrams = [words[i] + " " + words[i+1] + " " + words[i+2] for i in range(word_count - 2)]
+                tri_counts = Counter(trigrams)
+                if max(tri_counts.values()) / len(trigrams) > 0.15:
+                    is_repetitive_trigram = True
+
+            alnum_count = sum(1 for c in text if c.isalnum() or ('\u0900' <= c <= '\u0D7F'))
+            if len(text) > 50 and (alnum_count / len(text)) < 0.40:
+                is_symbol_heavy = True
+            if word_count < 15 or len(raw) < 80:
+                is_too_short = True
+
         return {
-            "empty": not raw, "short": 0 < len(raw) < self.short_document_bytes,
+            "empty": not raw, "short": is_too_short,
             "invalid_utf8": bool(doc.get("invalid_utf8_replacements")), "nul_heavy": nul_ratio > 0.01,
-            "extreme_repetition": len(sample) >= 128 and repetition >= self.repetition_threshold,
+            "extreme_repetition": (len(sample) >= 128 and repetition >= self.repetition_threshold) or is_repetitive_trigram,
+            "noisy_symbols": is_symbol_heavy,
             "extremely_long": len(raw) >= self.long_document_bytes,
             "extremely_long_line": bool(doc.get("extremely_long_line")),
             "ambiguous": text is None,
@@ -1138,11 +1185,12 @@ class ProductionDatasetBuilder:
                 ("empty", "empty_documents"), ("short", "short_documents"),
                 ("invalid_utf8", "invalid_utf8_documents"), ("nul_heavy", "nul_heavy_documents"),
                 ("extreme_repetition", "extreme_repetition_documents"),
+                ("noisy_symbols", "noisy_symbol_documents"),
                 ("extremely_long", "extremely_long_documents"),
                 ("extremely_long_line", "extremely_long_lines"), ("ambiguous", "ambiguous_records"),
             ):
                 if event["quality"].get(flag):
-                    self.current_source[counter_name] += 1
+                    self.current_source[counter_name] = self.current_source.get(counter_name, 0) + 1
                     self.counters[counter_name] += 1
             if event["quality"].get("ambiguous") and len(self.current_source["ambiguity_examples"]) < 20:
                 self.current_source["ambiguity_examples"].append({"doc_index": doc["doc_index"], "reason": doc.get("ambiguity")})
@@ -1166,7 +1214,7 @@ class ProductionDatasetBuilder:
 
     def _prepare_event(self, doc: Mapping[str, Any], file_index: int, batch_hashes: Set[str]) -> Dict[str, Any]:
         quality = self._quality(doc)
-        if quality["ambiguous"] or quality["empty"]:
+        if quality["ambiguous"] or quality["empty"] or quality["short"] or quality["extreme_repetition"] or quality["noisy_symbols"]:
             return {"kind": "skip", "doc": doc, "quality": quality, "file_index": file_index}
         content_hash = str(doc["content_sha256"])
         if self.dedupe_exact:
@@ -1176,6 +1224,17 @@ class ProductionDatasetBuilder:
             if content_hash in batch_hashes:
                 return {"kind": "duplicate", "doc": doc, "quality": quality, "file_index": file_index, "known_tokens": None}
             batch_hashes.add(content_hash)
+
+        # MinHash LSH Near-Deduplication
+        if getattr(self, "minhash_dedup", True) and doc.get("text"):
+            bands = compute_minhash_bands(doc["text"])
+            if bands:
+                matching_bands = sum(1 for b in bands if b in self.minhash_seen)
+                if matching_bands >= 2:  # >= 75% near duplicate match
+                    return {"kind": "duplicate", "doc": doc, "quality": quality, "file_index": file_index, "known_tokens": None}
+                for b in bands:
+                    self.minhash_seen.add(b)
+
         return {"kind": "unique", "doc": doc, "quality": quality, "file_index": file_index}
 
     def _commit_group(self, complete_source: bool = False) -> None:
@@ -1687,6 +1746,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     dedupe.add_argument("--dedupe-exact", action="store_true")
     dedupe.add_argument("--no-dedupe-exact", action="store_false", dest="dedupe_exact")
     parser.set_defaults(dedupe_exact=False)
+    parser.add_argument("--minhash-dedup", action="store_true", default=True, help="enable MinHash LSH near-deduplication")
+    parser.add_argument("--no-minhash-dedup", action="store_false", dest="minhash_dedup")
+    parser.add_argument("--quality-pruning", action="store_true", default=True, help="enable quality & repetitive spam pruning")
+    parser.add_argument("--no-quality-pruning", action="store_false", dest="quality_pruning")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--packed21", action="store_true")
     parser.add_argument("--text-fields", type=parse_text_fields, default=list(DEFAULT_TEXT_FIELDS), help="comma-separated ordered extraction fields")
@@ -1747,7 +1810,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     builder = ProductionDatasetBuilder(
         args.input_dir, str(output), census, shard_tokens=args.shard_tokens,
         val_ratio=args.val_ratio, dedupe_exact=args.dedupe_exact,
-        enable_packed21=args.packed21, text_fields=args.text_fields,
+        enable_packed21=args.packed21, minhash_dedup=args.minhash_dedup,
+        quality_pruning=args.quality_pruning, text_fields=args.text_fields,
         sample_mb=args.sample_mb, dry_run=args.dry_run, resume=args.resume,
         workers=args.workers, text_chunk_bytes=args.text_chunk_bytes,
         max_document_bytes=args.max_document_bytes, log_interval=args.log_interval,
