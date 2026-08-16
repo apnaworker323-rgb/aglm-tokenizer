@@ -1,4 +1,4 @@
-# ⚡ AGLM Universal Multilingual Tokenizer (1.95M+ Vocab & SuperBPE-Beating Multiword Superwords)
+# ⚡ AGLM Universal Multilingual Tokenizer (1.25M+ Vocab & SuperBPE-Beating Multiword Superwords)
 
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
 [![Vocab Size](https://img.shields.io/badge/Vocab%20Size-1%2C949%2C902-brightgreen.svg)](https://github.com/apnaworker323-rgb/aglm-tokenizer)
