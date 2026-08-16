@@ -1,6 +1,6 @@
 {
   "model_name": "AGLM-Universal-1M-Production",
-  "vocab_size": 1876701,
+  "vocab_size": 1949902,
   "algorithm": "Byte-Level BPE with Code-Aware Longest-Prefix Match Trie",
   "byte_fallback": "Guaranteed 256 byte tokens (0x00-0xFF)",
   "unified_sources": [
@@ -17,7 +17,8 @@
     "Universal 2-to-5 Gram Multiword Superwords (+24,341 tokens)",
     "High-Leverage Reasoning, Code, LaTeX & Indic Superwords (+48,789 tokens)",
     "Hugging Face GitHub Code & English Knowledge Superwords (+159,404 tokens)",
-    "English Grammar Books & Multilingual Syntax Superwords (+28,606 tokens)"
+    "English Grammar Books & Multilingual Syntax Superwords (+28,606 tokens)",
+    "Full-Corpus 14M Words Deep-Mined Superwords Tier-20 (+73,201 tokens)"
   ],
-  "export_timestamp": "2026-08-16T10:42:34.467945+00:00"
+  "export_timestamp": "2026-08-16T10:52:03.654835+00:00"
 }
