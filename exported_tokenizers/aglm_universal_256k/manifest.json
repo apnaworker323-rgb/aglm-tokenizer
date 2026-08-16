@@ -1,18 +1,15 @@
 {
-  "model_name": "AGLM-Universal-256K-Production",
+  "model_name": "AGLM-Universal-256K-Multilingual",
   "vocab_size": 256000,
   "algorithm": "Byte-Level BPE with Code-Aware Longest-Prefix Match Trie",
   "byte_fallback": "Guaranteed 256 byte tokens (0x00-0xFF)",
-  "unified_sources": [
-    "OpenAI o200k_base & cl100k_base",
-    "Meta XLM-V & XLM-RoBERTa",
-    "Google Gemma 2",
-    "DeepSeek V3",
-    "Alibaba Qwen 2.5",
-    "Meta Llama 3",
-    "Mistral v0.3",
-    "AI4Bharat Aksharantar (13 Indic Languages)",
-    "Curated Multi-Language Code Syntax"
-  ],
-  "export_timestamp": "2026-08-14T16:25:03Z"
+  "multilingual_budget": {
+    "indic_hindi": 30000,
+    "chinese_cjk": 10000,
+    "russian_cyrillic": 5000,
+    "arabic_persian": 5000,
+    "european_accents": 6000,
+    "code_and_english": 200000
+  },
+  "export_timestamp": "2026-08-16T21:45:00Z"
 }
