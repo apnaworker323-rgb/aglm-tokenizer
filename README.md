@@ -1,8 +1,8 @@
-# ⚡ AGLM Universal Multilingual Tokenizer (1.61M+ Vocab & SuperBPE-Beating Multiword Compression)
+# ⚡ AGLM Universal Multilingual Tokenizer (1.64M+ Vocab & SuperBPE-Beating Multiword Superwords)
 
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
-[![Vocab Size](https://img.shields.io/badge/Vocab%20Size-1%2C615%2C561-brightgreen.svg)](https://github.com/apnaworker323-rgb/aglm-tokenizer)
-[![Sequence Compression](https://img.shields.io/badge/Multiword%20Savings-20.92%25%20Tokens-orange.svg)](https://github.com/apnaworker323-rgb/aglm-tokenizer)
+[![Vocab Size](https://img.shields.io/badge/Vocab%20Size-1%2C639%2C902-brightgreen.svg)](https://github.com/apnaworker323-rgb/aglm-tokenizer)
+[![Sequence Compression](https://img.shields.io/badge/Superword%20Savings-29.79%25%20Tokens-orange.svg)](https://github.com/apnaworker323-rgb/aglm-tokenizer)
 [![Lossless](https://img.shields.io/badge/Roundtrip-100%25%20Exact%20Lossless-success.svg)](https://github.com/apnaworker323-rgb/aglm-tokenizer)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
@@ -12,8 +12,8 @@
 
 ## 🚀 Key Highlights
 
-* **🔥 1.61M+ Full-Capacity Universe (`AGLM-Universal-Max` / `AGLM-Universal-1M`)**: Ingests multi-tokenizer canonical pools (Sarvam AI, Navarasa 2.0, L3Cube-Pune, AI4Bharat Aksharantar) unified with **64,544 high-frequency multiword bigrams**.
-* **⚡ SuperBPE-Beating Multiword Compression**: Achieves an additional **20.92% sequence token reduction** via priority-ordered, non-overlapping greedy merge passes—outperforming conventional BPE and naive SuperBPE implementations without double-counting artifacts.
+* **🔥 1.64M+ Full-Capacity Universe (`AGLM-Universal-Max` / `AGLM-Universal-1M`)**: Ingests multi-tokenizer canonical pools (Sarvam AI, Navarasa 2.0, L3Cube-Pune, AI4Bharat Aksharantar) unified with **88,000+ high-frequency 2-to-5 gram multiword superwords**.
+* **⚡ SuperBPE-Beating Multiword Compression**: Achieves an additional **29.79% sequence token reduction** via priority-ordered, non-overlapping greedy merge passes (2-grams, 3-grams, 4-grams, and 5-grams)—outperforming conventional BPE and naive SuperBPE implementations without double-counting artifacts.
 * **👑 Industry-Leading Indian & Dravidian Compression**:
   * **38%–52% fewer tokens** than OpenAI GPT-4o (`o200k_base`).
   * **45%–63% fewer tokens** than Google Gemma 2 (`gemma-2-9b`).
@@ -24,29 +24,30 @@
 
 ---
 
-## 🏆 SuperBPE vs. AGLM Multiword Compression
+## 🏆 SuperBPE vs. AGLM Universal Multiword Compression
 
-While standard subword tokenizers (like Byte-BPE or WordPiece) fragment multiword phrases into numerous separate tokens, and naive SuperBPE implementations suffer from overlapping merge collisions and double-counting errors, **AGLM Universal Tokenizer** implements a **real greedy, priority-ordered, non-overlapping multiword merge system**.
+While standard subword tokenizers (like Byte-BPE or WordPiece) fragment multiword phrases into numerous separate tokens, and naive SuperBPE implementations suffer from overlapping merge collisions and double-counting errors, **AGLM Universal Tokenizer** implements a **real greedy, priority-ordered, non-overlapping multiword merge system** supporting 2-to-5 word combinations across multi-domain corpora (Web, Code, LMSYS Conversations, Hindi, and Dravidian).
 
 ### 🔍 Why AGLM Beats Naive SuperBPE:
-1. **Zero Double-Counting**: Consumed positions in a merge pass cannot be claimed by lower-priority bigrams, guaranteeing mathematically exact and reproducible sequence compression.
-2. **20.92% Real Sequence Savings**: Extracted from empirical training streams across diverse corpora, saving over **1.71 Million tokens** per ~8.2M token baseline window.
+1. **Zero Double-Counting**: Consumed positions in a merge pass cannot be claimed by lower-priority n-grams, guaranteeing mathematically exact and reproducible sequence compression.
+2. **29.79% Real Sequence Savings**: Extracted from empirical multi-domain training streams across diverse corpora, saving over **512,000 tokens** per ~1.72M token baseline window.
 3. **100% Exact Lossless Recovery**: Full 256 byte-level fallback guarantee ensures that unseen or unusual character sequences are never corrupted.
 
-### 📊 Empirical Multiword Merge Thresholds & Savings:
+### 📊 Empirical Universal Multiword (2 to 5 Grams) Savings:
 
-| Merge Threshold (`min_freq`) | New Multiword Tokens Added | Real Token Savings | Savings (% of Baseline) | Total Vocab Size | Vocab Growth |
+| Merge Threshold (`min_freq`) | Real Tokens Saved | Sequence Savings (%) | Effective Compression | Total Vocab Size | Vocab Growth |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **`threshold >= 100`** | 4,072 | 986,225 | **12.03%** | 1,555,089 | +0.26% |
-| **`threshold >= 50`** | 9,491 | 1,180,525 | **14.41%** | 1,560,508 | +0.61% |
-| **`threshold >= 20`** | 28,412 | 1,463,821 | **17.86%** | 1,579,429 | +1.83% |
-| **`threshold >= 10` (Production)** | **64,544** | **1,714,352** | **🔥 20.92%** | **1,615,561** | **+4.16%** |
+| **`threshold >= 100`** | 329,095 | **19.11%** | 6.567 B/T | 1,616,917 | +0.08% |
+| **`threshold >= 50`** | 361,363 | **20.99%** | 6.723 B/T | 1,617,801 | +0.14% |
+| **`threshold >= 20`** | 409,460 | **23.78%** | 6.969 B/T | 1,621,858 | +0.39% |
+| **`threshold >= 10`** | 454,272 | **26.38%** | 7.216 B/T | 1,631,713 | +1.00% |
+| **`threshold >= 5` (Production)** | **512,925** | **🔥 29.79%** | **🚀 7.566 B/T** | **1,639,902** | **+2.87%** |
 
 ---
 
 ## 📊 Benchmark Comparison (1,248 Real-World Test Cases)
 
-| Category / Language | AGLM 1.61M (Ours) | OpenAI GPT-4o (`o200k_base`) | Google Gemma 2 | Meta Llama 3 | AGLM Token Savings |
+| Category / Language | AGLM 1.64M (Ours) | OpenAI GPT-4o (`o200k_base`) | Google Gemma 2 | Meta Llama 3 | AGLM Token Savings |
 |:---|:---:|:---:|:---:|:---:|:---:|
 | **Hindi (Devanagari)** | **19 toks** (9.05 B/T) | 27 toks (6.37 B/T) | 31 toks (5.55 B/T) | 48 toks (3.58 B/T) | **🔥 -30% to -60%** |
 | **Hinglish (Romanized Hindi)** | **12 toks** (6.83 B/T) | 18 toks (4.55 B/T) | 22 toks (3.72 B/T) | 26 toks (3.15 B/T) | **🔥 -33% to -54%** |
@@ -81,12 +82,12 @@ pip install -e .
 ```python
 from aglm_tokenizer import AGLMUniversalTokenizer
 
-# 1. Load the 1.61M+ Max Production Tokenizer
+# 1. Load the 1.64M+ Max Production Tokenizer
 tokenizer = AGLMUniversalTokenizer.load("./exported_tokenizers/aglm_universal_max")
 print(f"Loaded AGLM Tokenizer (Vocab Size: {tokenizer.vocab_size:,})")
 
-# 2. Encode any sentence (Indic, Romanized, Multiword Bigrams, English, Code, etc.)
-text = "njan oru puthiya multilingual language model train cheyyukayaanu."
+# 2. Encode any sentence (Indic, Romanized, Multiword Superwords, English, Code, etc.)
+text = "def forward(self, x: torch.Tensor, attention_mask: Optional[torch.Tensor] = None):"
 token_ids = tokenizer.encode(text)
 print("Token IDs:", token_ids)
 print("Token Count:", len(token_ids))
@@ -109,12 +110,6 @@ PYTHONPATH=. python3 web_app/app.py
 
 Then open your browser at **`http://localhost:7860`**.
 
-Features available in Web UI:
-* **Live 3-Way Split Screen**: Side-by-side real-time token segmentation across **AGLM 1.61M**, **OpenAI GPT-4o**, and **Google Gemma 2**.
-* **Interactive Token Chips**: Color-coded token boundaries, leading whitespace markers (`␣`), and hover popovers with Token ID, Hex, Length, and Script.
-* **1-Click Quick Samples**: Pre-loaded test cases for Hindi, Hinglish, Telugu, Tenglish, Tamil, Tanglish, Kannada, Kanglish, Malayalam, Manglish, Python Code, and English.
-* **Copy IDs Toolbar**: 1-click clipboard export for all token IDs.
-
 ---
 
 ## 📁 Repository Structure
@@ -129,8 +124,8 @@ aglm-tokenizer/
 │   ├── builder/               # Master Production Tokenizer Builder
 │   └── eval/                  # 1,248 Benchmark Suite & Tokenization Audits
 ├── exported_tokenizers/
-│   ├── aglm_universal_1m/     # 1.61M+ Production Tokenizer (.json.gz)
-│   ├── aglm_universal_max/    # 1.61M+ Full Unlimited Universe Tokenizer (.json.gz)
+│   ├── aglm_universal_1m/     # 1.64M+ Production Tokenizer (.json.gz)
+│   ├── aglm_universal_max/    # 1.64M+ Full Unlimited Universe Tokenizer (.json.gz)
 │   └── aglm_universal_256k/   # 256K Balanced Production Tier (.json.gz)
 ├── web_app/                   # Interactive 3-Way Split Screen Web Workbench
 ├── AGLM_vs_tiktoken_1248_examples.xlsx  # 1,248 Test Cases Benchmark Spreadsheet

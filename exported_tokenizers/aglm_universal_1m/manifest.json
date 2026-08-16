@@ -1,6 +1,6 @@
 {
   "model_name": "AGLM-Universal-1M-Production",
-  "vocab_size": 1615561,
+  "vocab_size": 1639902,
   "algorithm": "Byte-Level BPE with Code-Aware Longest-Prefix Match Trie",
   "byte_fallback": "Guaranteed 256 byte tokens (0x00-0xFF)",
   "unified_sources": [
@@ -13,7 +13,8 @@
     "Mistral v0.3",
     "AI4Bharat Aksharantar (13 Indic Languages)",
     "Curated Multi-Language Code Syntax",
-    "Empirical High-Frequency Multiword Bigrams (+64,544 tokens)"
+    "Empirical High-Frequency Word Bigrams (+64,544 tokens)",
+    "Universal 2-to-5 Gram Multiword Superwords (+24,341 tokens, ~30% Sequence Compression)"
   ],
-  "export_timestamp": "2026-08-16T10:04:42.750294+00:00"
+  "export_timestamp": "2026-08-16T10:26:46.056517+00:00"
 }
