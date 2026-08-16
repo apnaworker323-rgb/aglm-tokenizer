@@ -1,0 +1,113 @@
+{
+  "config": {
+    "batch_size": 2,
+    "clip_grad": 1.0,
+    "cutoffs": [
+      16384,
+      131072,
+      524288
+    ],
+    "d_lexical": 32,
+    "d_model": 192,
+    "ffn_multiple": 2.6666666666666665,
+    "learning_rate": 0.0003,
+    "manifest": "/run/media/akash/18FAA791FAA76A28/aglm_project/aglm_tokenized_dataset/metadata/dataset_manifest.json",
+    "n_heads": 6,
+    "n_layers": 4,
+    "precision": "bf16",
+    "seed": 20260815,
+    "seq_len": 512,
+    "split": "train",
+    "steps": 100,
+    "warmup_steps": 10,
+    "weight_decay": 0.1
+  },
+  "created_at_unix": 1786774222.1596909,
+  "dataset": {
+    "conversion_raw_mib_per_second": 8.700621304635522,
+    "raw_utf8_bytes": 7269913402,
+    "total_tokens": 1479404911,
+    "train_tokens": 1473014584,
+    "val_tokens": 6390327
+  },
+  "gpu": {
+    "bf16_supported": true,
+    "compute_capability": "8.6",
+    "cudnn_version": 92000,
+    "name": "NVIDIA GeForce RTX 3050",
+    "torch_cuda_version": "13.0",
+    "torch_version": "2.12.0+cu130",
+    "total_memory_bytes": 6086262784
+  },
+  "raw_bytes_per_token": 4.914079538296193,
+  "results": [
+    {
+      "data_ms_p50": 0.11053099296987057,
+      "data_ms_p95": 1.0492767556570468,
+      "effective_raw_mib_per_second": 0.043956232700790784,
+      "elapsed_seconds_including_data": 10.917463814024813,
+      "fused_adamw": true,
+      "input_schedule_sha256": "59559e35e5287d4fd380fb3ef321196a6c1a2c86991a00fc4d0ba462507a4125",
+      "loss_first": 13.26380443572998,
+      "loss_last": 10.035003662109375,
+      "mode": "resident",
+      "nvidia_smi": {
+        "gpu_util_max_pct": 100.0,
+        "gpu_util_mean_pct": 96.70212765957447,
+        "memory_used_max_mib": 5312.0,
+        "power_mean_w": 65.96829787234043,
+        "samples": 47
+      },
+      "parameter_count": 67872091,
+      "step_ms_p50": 106.01626097923145,
+      "step_ms_p95": 129.2522142641246,
+      "steps_per_second": 9.159636496485366,
+      "summed_data_path_seconds": 0.02423899807035923,
+      "summed_gpu_step_seconds": 10.860937615972944,
+      "timed_steps": 100,
+      "tokens": 102400,
+      "tokens_per_second": 9379.467772401014,
+      "torch_peak_allocated_mib": 2724.36669921875,
+      "torch_peak_reserved_mib": 5172.0,
+      "trainable_parameter_count": 67872091
+    },
+    {
+      "data_ms_p50": 0.2833205508068204,
+      "data_ms_p95": 1.0153539071325204,
+      "effective_raw_mib_per_second": 0.043397137050354785,
+      "elapsed_seconds_including_data": 11.05811610003002,
+      "fused_adamw": true,
+      "input_schedule_sha256": "59559e35e5287d4fd380fb3ef321196a6c1a2c86991a00fc4d0ba462507a4125",
+      "loss_first": 13.264066696166992,
+      "loss_last": 10.035440444946289,
+      "mode": "mmap",
+      "nvidia_smi": {
+        "gpu_util_max_pct": 100.0,
+        "gpu_util_mean_pct": 97.82978723404256,
+        "memory_used_max_mib": 5530.0,
+        "power_mean_w": 66.24978723404256,
+        "samples": 47
+      },
+      "parameter_count": 67872091,
+      "step_ms_p50": 106.76132893422619,
+      "step_ms_p95": 130.37663555587642,
+      "steps_per_second": 9.04313167771213,
+      "summed_data_path_seconds": 0.0400829614372924,
+      "summed_gpu_step_seconds": 10.986750107840635,
+      "timed_steps": 100,
+      "tokens": 102400,
+      "tokens_per_second": 9260.166837977222,
+      "torch_peak_allocated_mib": 2723.494140625,
+      "torch_peak_reserved_mib": 5184.0,
+      "trainable_parameter_count": 67872091
+    }
+  ],
+  "schedule": {
+    "batches": 110,
+    "max_token_id": 1550609,
+    "min_token_id": 9,
+    "samples": 220,
+    "sha256": "59559e35e5287d4fd380fb3ef321196a6c1a2c86991a00fc4d0ba462507a4125"
+  },
+  "status": "PASSED"
+}

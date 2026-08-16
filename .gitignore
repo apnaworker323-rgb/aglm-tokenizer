@@ -5,6 +5,8 @@ __pycache__/
 *.so
 .Python
 build/
+target/
+**/target/
 develop-eggs/
 dist/
 downloads/
@@ -33,7 +35,9 @@ env/
 *.swp
 *.swo
 
-# Large raw uncompressed cache datasets (>100MB)
+# Large raw uncompressed cache datasets & benchmarks (>100MB)
 # Note: Models are distributed via aglm_vocab.json.gz (<30MB)
-canonical_pool_results/CANONICAL_TOKEN_POOL.jsonl
+canonical_pool_results/
+benchmark_results/
+native/aglm_native/target/
 exported_tokenizers/*/aglm_vocab.json

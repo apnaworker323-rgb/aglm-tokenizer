@@ -1,0 +1,33 @@
+{
+  "addressable_id_count": 1551017,
+  "canonical_dtype": "<u4",
+  "freeze_policy": {
+    "allow_add_tokens": false,
+    "allow_remove_tokens": false,
+    "allow_renumber_tokens": false,
+    "enforcement": "All minimum-segmentation and latent-patching entry points abort unless every artifact SHA256 matches this record."
+  },
+  "max_token_id": 1551016,
+  "min_token_id": 0,
+  "name": "AGLM-Universal-Max-Unlimited",
+  "normal_valid_id_count": 1551008,
+  "required_addressing_bits": 21,
+  "sha256": {
+    "aglm_vocab.json": "48d47c68673e3eabecdba9135deaf67a2068d3a8b9c83d12d13b55555860a8d9",
+    "aglm_vocab.json.gz": "1f865241d0f3ebcc41bc2e75de8eb6ef190dd23e2fa5a444f69d40ad250c74eb",
+    "manifest.json": "71d4b419d9efb117bf558313224ced76b0880ff7fad15ef5fd36fa4d3ff8aee0"
+  },
+  "special_token_ids": {
+    "<|bos|>": 257,
+    "<|code_switch|>": 264,
+    "<|eos|>": 258,
+    "<|lang_switch|>": 261,
+    "<|mask|>": 260,
+    "<|pad|>": 256,
+    "<|romanized|>": 263,
+    "<|script_switch|>": 262,
+    "<|unk|>": 259
+  },
+  "status": "FROZEN",
+  "vocab_size": 1551017
+}

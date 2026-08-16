@@ -27,6 +27,7 @@ setup(
     ],
     python_requires=">=3.9",
     install_requires=[
+        "regex==2026.5.9",
         "tiktoken>=0.5.0",
         "transformers>=4.38.0",
         "openpyxl>=3.1.0",

@@ -1,39 +1,60 @@
-# AGLM Production Dataset Builder Configuration
-# Designed for 100MB samples up to 20 TB full-corpus training datasets
+# Reference configuration for build_aglm_dataset.py.
+# CLI values are recorded verbatim in metadata/conversion_config.json.
 
 tokenizer:
-  path: "exported_tokenizers/aglm_universal_max"
+  path: exported_tokenizers/aglm_universal_max
+  expected_name: AGLM-Universal-Max-Unlimited
   expected_vocab_size: 1551017
+  expected_normal_valid_ids: 1551008
   expected_max_id: 1551016
-  dtype: "uint32"
-  bits_per_token: 21
-  eos_token_id: 258
-  bos_token_id: 257
+  expected_sha256: 1f865241d0f3ebcc41bc2e75de8eb6ef190dd23e2fa5a444f69d40ad250c74eb
+  expected_regex_version: 2026.5.9
+  expected_regex_unicode_version: 17.0.0
+  dtype: uint32
+  numpy_dtype: "<u4"
+  endian: little
+  uint16_forbidden: true
+
+documents:
+  text_fields: [text, content, body, document, response, prompt, question, answer, messages]
+  text_chunk_bytes: 1048576
+  max_document_bytes: 67108864
+  short_document_bytes: 32
+  long_document_bytes: 8388608
+  bos_policy: none
+  separator: "append exactly one <|eos|> ID (258) after every non-empty document"
+  normalization: none
 
 sharding:
-  shard_tokens: 50000000        # 50M tokens per shard (~200MB uint32 file)
-  val_ratio: 0.005              # 0.5% validation split (deterministic by document hash)
-  save_clean_text: false        # Do not duplicate raw text to disk on multi-TB runs
-  enable_packed21: false        # Optional 21-bit packed storage alongside uint32
+  target_tokens: 100000000
+  validation_ratio: 0.005
+  split_key: sha256_of_extracted_document_bytes
+  canonical_format: raw_little_endian_uint32
+  packed21_primary: false
+  fsync: true
 
-extraction:
-  text_fields:
-    - "text"
-    - "content"
-    - "body"
-    - "document"
-    - "response"
-    - "prompt"
-    - "question"
-    - "answer"
-    - "messages"
-  min_doc_chars: 10
-  max_doc_chars: 5000000
-  dedupe_exact: true
-  document_separator: "<|eos|>"
+quality:
+  exact_dedupe_default: false
+  exact_dedupe_backend: sqlite_sha256_index
+  fuzzy_dedupe: false
+  language_detection: false
+  repetition_threshold: 0.95
 
 performance:
-  workers: 4
-  buffer_tokens: 1000000        # Tokens in RAM buffer before flushing to shard
-  log_interval_seconds: 5.0
-  fsync_shards: true
+  workers_default: 1
+  tokenizer_backend_default: reference
+  native_backend: "optional bit-exact Rust; uses GIL-free threads and direct little-endian uint32 output"
+  native_build_command: "bash native/aglm_native/build.sh"
+  native_requires_reference_equivalence_preflight: true
+  log_interval_seconds: 5
+  frequency_counter_dtype: uint64
+  frequency_counter_entries: 1551017
+  loader_max_open_shards: 32
+
+safety_gates:
+  stage_a: inventory_only
+  stage_b: 100_MiB_dry_run
+  stage_c: roundtrip_shard_manifest_loader_verification
+  stage_d: 1_GiB_sample
+  stage_e: repeat_verification
+  full_conversion_requires: --authorize-full-conversion

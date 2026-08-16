@@ -1,38 +1,40 @@
-# Dataset Input Inventory Report
+# Dataset Input Inventory
 
-**Date**: August 15, 2026  
-**Input Directory**: `/run/media/akash/18FAA791FAA76A28/aglm_project/data`  
-**Total Supported Files**: 21  
-**Total Raw Volume**: 6.804 GB (6967.39 MB)  
+Generated: 2026-08-15T07:12:06.001919+00:00
 
-## Format Breakdown
-{
-  ".pdf": 13,
-  ".json": 4,
-  ".txt": 4
-}
+Input directory: `/run/media/akash/18FAA791FAA76A28/aglm_project/data`
 
-## Discovered Files
-| Index | File Name | Extension | Size (MB) | Full Path |
-|:---|:---|:---:|:---:|:---|
-| 1 | `AIPython.pdf` | `.pdf` | 2.66 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/AIPython.pdf` |
-| 2 | `Building_Skills_in_Object-Oriented_Design__Release_2_2_1.pdf` | `.pdf` | 0.01 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/Building_Skills_in_Object-Oriented_Design__Release_2_2_1.pdf` |
-| 3 | `Building_Skills_in_Object-Oriented_Design__Release_3_1.pdf` | `.pdf` | 0.01 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/Building_Skills_in_Object-Oriented_Design__Release_3_1.pdf` |
-| 4 | `Building_Skills_in_Python.pdf` | `.pdf` | 0.01 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/Building_Skills_in_Python.pdf` |
-| 5 | `Fundamentals_of__Python_Programming.pdf` | `.pdf` | 0.01 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/Fundamentals_of__Python_Programming.pdf` |
-| 6 | `How_to_Code_in_Python_3.pdf` | `.pdf` | 4.79 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/How_to_Code_in_Python_3.pdf` |
-| 7 | `How_to_Think_Like_a_Computer_Scientist__Learning_with_Python_3__RLE_.pdf` | `.pdf` | 2.67 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/How_to_Think_Like_a_Computer_Scientist__Learning_with_Python_3__RLE_.pdf` |
-| 8 | `IntroductionToPython_Econometrics.pdf` | `.pdf` | 4.1 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/IntroductionToPython_Econometrics.pdf` |
-| 9 | `Learn_to_Program_Using_Python.pdf` | `.pdf` | 0.01 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/Learn_to_Program_Using_Python.pdf` |
-| 10 | `ModelingCreativityInPython.pdf` | `.pdf` | 6.33 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/ModelingCreativityInPython.pdf` |
-| 11 | `ProgrammingComputerVision.pdf` | `.pdf` | 13.63 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/ProgrammingComputerVision.pdf` |
-| 12 | `Programming_for_Non-Programmers__Release_2_6_2.pdf` | `.pdf` | 0.01 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/Programming_for_Non-Programmers__Release_2_6_2.pdf` |
-| 13 | `Python_2_7_quick_reference.pdf` | `.pdf` | 0.01 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/Python_2_7_quick_reference.pdf` |
-| 14 | `fineweb_1b_split_meta.json` | `.json` | 0.0 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/fineweb_1b_split_meta.json` |
-| 15 | `fineweb_combined_split_meta.json` | `.json` | 0.0 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/fineweb_combined_split_meta.json` |
-| 16 | `fineweb_combined_train_95.txt` | `.txt` | 4630.89 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/fineweb_combined_train_95.txt` |
-| 17 | `fineweb_combined_val_5.txt` | `.txt` | 241.3 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/fineweb_combined_val_5.txt` |
-| 18 | `fineweb_split_meta.json` | `.json` | 0.0 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/fineweb_split_meta.json` |
-| 19 | `lmsys_split_meta.json` | `.json` | 0.0 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/lmsys_split_meta.json` |
-| 20 | `lmsys_train_95.txt` | `.txt` | 1962.27 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/lmsys_train_95.txt` |
-| 21 | `lmsys_val_5.txt` | `.txt` | 98.66 MB | `/run/media/akash/18FAA791FAA76A28/aglm_project/data/lmsys_val_5.txt` |
+Supported files: 8
+Ignored files: 13
+Supported on-disk bytes: 7,269,918,372
+
+## Supported files
+
+| Bytes | Format | Relative path |
+|---:|:---:|---|
+| 1,112 | `.json` | `fineweb_1b_split_meta.json` |
+| 1,310 | `.json` | `fineweb_combined_split_meta.json` |
+| 4,855,844,448 | `.txt` | `fineweb_combined_train_95.txt` |
+| 253,025,138 | `.txt` | `fineweb_combined_val_5.txt` |
+| 885 | `.json` | `fineweb_split_meta.json` |
+| 1,663 | `.json` | `lmsys_split_meta.json` |
+| 2,057,594,002 | `.txt` | `lmsys_train_95.txt` |
+| 103,449,814 | `.txt` | `lmsys_val_5.txt` |
+
+## Ignored files
+
+| Bytes | Reason | Relative path |
+|---:|---|---|
+| 2,788,307 | unsupported extension | `AIPython.pdf` |
+| 11,567 | unsupported extension | `Building_Skills_in_Object-Oriented_Design__Release_2_2_1.pdf` |
+| 12,685 | unsupported extension | `Building_Skills_in_Object-Oriented_Design__Release_3_1.pdf` |
+| 10,091 | unsupported extension | `Building_Skills_in_Python.pdf` |
+| 11,190 | unsupported extension | `Fundamentals_of__Python_Programming.pdf` |
+| 5,022,439 | unsupported extension | `How_to_Code_in_Python_3.pdf` |
+| 2,799,906 | unsupported extension | `How_to_Think_Like_a_Computer_Scientist__Learning_with_Python_3__RLE_.pdf` |
+| 4,300,284 | unsupported extension | `IntroductionToPython_Econometrics.pdf` |
+| 12,437 | unsupported extension | `Learn_to_Program_Using_Python.pdf` |
+| 6,641,510 | unsupported extension | `ModelingCreativityInPython.pdf` |
+| 14,290,070 | unsupported extension | `ProgrammingComputerVision.pdf` |
+| 11,300 | unsupported extension | `Programming_for_Non-Programmers__Release_2_6_2.pdf` |
+| 10,939 | unsupported extension | `Python_2_7_quick_reference.pdf` |
