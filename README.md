@@ -12,7 +12,7 @@
 
 ## 🚀 Key Highlights
 
-* **🔥 1.95M+ Full-Capacity Universe (`AGLM-Universal-Max` / `AGLM-Universal-1M`)**: Ingests multi-tokenizer canonical pools (Sarvam AI, Navarasa 2.0, L3Cube-Pune, AI4Bharat Aksharantar) unified with **396,000+ high-frequency 2-to-5 gram multiword superwords** across GitHub Code, English Knowledge, Grammar Textbooks, LaTeX, and Indic domains.
+* **🔥 1.25M+ Full-Capacity Universe (`AGLM-Universal-Max` / `AGLM-Universal-1M`)**: Ingests multi-tokenizer canonical pools (Sarvam AI, Navarasa 2.0, L3Cube-Pune, AI4Bharat Aksharantar) unified with **396,000+ high-frequency 2-to-5 gram multiword superwords** across GitHub Code, English Knowledge, Grammar Textbooks, LaTeX, and Indic domains.
 * **⚡ SuperBPE-Beating Multiword Compression**: Achieves **35%+ sequence token reduction** via priority-ordered, non-overlapping greedy merge passes (2-grams, 3-grams, 4-grams, and 5-grams)—outperforming conventional BPE and naive SuperBPE implementations without double-counting artifacts.
 * **📚 Formal Grammar & Linguistic Structures**: Ingests classic full-text grammar textbooks (Baskervill, Kirkham, Stewart, Armstrong) and multilingual syntax error correction corpora, eliminating token fragmentation on complex grammatical sentences.
 * **💻 Deep GitHub Code & Framework Integration**: Full 14M words deep-mined corpus (`CodeAlpaca-20k`, `flytech/python-codes-25k`, `TinyStories`), embedding high-utility code idioms (Python, PyTorch, React/JS, Rust, SQL, C++).
