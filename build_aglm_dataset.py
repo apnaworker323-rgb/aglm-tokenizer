@@ -1088,26 +1088,40 @@ class ProductionDatasetBuilder:
         is_symbol_heavy = False
         is_too_short = 0 < len(raw) < self.short_document_bytes
 
+        # Code-Awareness: Detect programming code, scripts, JSON, and coding datasets
+        source_path = str(doc.get("source", "")).lower()
+        is_code = bool(
+            any(k in source_path for k in ("code", "python", "alpaca", ".py", ".cpp", ".c", ".java", ".js", ".ts", ".html", ".css", ".json", ".sql", ".sh"))
+            or (text and any(kw in text[:400] for kw in ("def ", "class ", "import ", "from ", "function ", "return ", "const ", "var ", "#include", "<!DOCTYPE", "SELECT ")))
+        )
+
         if self.quality_pruning and text:
             words = text.split()
             word_count = len(words)
-            if word_count >= 15:
-                trigrams = [words[i] + " " + words[i+1] + " " + words[i+2] for i in range(word_count - 2)]
-                tri_counts = Counter(trigrams)
-                if max(tri_counts.values()) / len(trigrams) > 0.15:
-                    is_repetitive_trigram = True
+            if not is_code:
+                # Natural language filters (Hindi, English, etc.)
+                if word_count >= 15:
+                    trigrams = [words[i] + " " + words[i+1] + " " + words[i+2] for i in range(word_count - 2)]
+                    tri_counts = Counter(trigrams)
+                    if max(tri_counts.values()) / len(trigrams) > 0.15:
+                        is_repetitive_trigram = True
 
-            alnum_count = sum(1 for c in text if c.isalnum() or ('\u0900' <= c <= '\u0D7F'))
-            if len(text) > 50 and (alnum_count / len(text)) < 0.40:
-                is_symbol_heavy = True
-            if word_count < 15 or len(raw) < 80:
-                is_too_short = True
+                alnum_count = sum(1 for c in text if c.isalnum() or ('\u0900' <= c <= '\u0D7F'))
+                if len(text) > 50 and (alnum_count / len(text)) < 0.40:
+                    is_symbol_heavy = True
+                if word_count < 15 or len(raw) < 80:
+                    is_too_short = True
+            else:
+                # Code-Specific Filters: Code naturally contains high symbols and concise functions
+                is_symbol_heavy = False  # NEVER filter code for symbols/operators!
+                is_too_short = len(raw.strip()) < 15  # Keep concise functions & scripts
 
         return {
             "empty": not raw, "short": is_too_short,
             "invalid_utf8": bool(doc.get("invalid_utf8_replacements")), "nul_heavy": nul_ratio > 0.01,
             "extreme_repetition": (len(sample) >= 128 and repetition >= self.repetition_threshold) or is_repetitive_trigram,
             "noisy_symbols": is_symbol_heavy,
+            "is_code": is_code,
             "extremely_long": len(raw) >= self.long_document_bytes,
             "extremely_long_line": bool(doc.get("extremely_long_line")),
             "ambiguous": text is None,
@@ -1233,7 +1247,10 @@ class ProductionDatasetBuilder:
             bands = compute_minhash_bands(doc["text"])
             if bands:
                 matching_bands = sum(1 for b in bands if b in self.minhash_seen)
-                if matching_bands >= 2:  # >= 75% near duplicate match
+                # Code has common imports/syntax, so only dedupe if >= 12 bands match (90%+ identical copy)
+                # Natural language articles dedupe at >= 3 bands (75% identical)
+                threshold = 12 if quality.get("is_code") else 3
+                if matching_bands >= threshold:
                     return {"kind": "duplicate", "doc": doc, "quality": quality, "file_index": file_index, "known_tokens": None}
                 for b in bands:
                     self.minhash_seen.add(b)
