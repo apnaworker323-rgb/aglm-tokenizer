@@ -606,45 +606,46 @@ def unpack_21bit_vectorized(data: bytes, num_tokens: int) -> np.ndarray:
 _WORKER_TOKENIZER: Optional[AGLMUniversalTokenizer] = None
 _WORKER_NATIVE: Any = None
 _WORKER_BACKEND = "reference"
+try:
+    import aglm_fast_bpe
+    _FAST_BPE_AVAILABLE = True
+except ImportError:
+    _FAST_BPE_AVAILABLE = False
 
 
-def _worker_init(tokenizer_path: str, backend: str = "reference") -> None:
+def _worker_init(tokenizer_dir: Path, backend: str) -> None:
     global _WORKER_TOKENIZER, _WORKER_NATIVE, _WORKER_BACKEND
-    if _WORKER_TOKENIZER is None:
-        _WORKER_TOKENIZER = AGLMUniversalTokenizer.load(tokenizer_path)
+    tc = TokenizerCensus(tokenizer_dir)
+    _WORKER_TOKENIZER = tc.tokenizer
     _WORKER_BACKEND = backend
-    if backend == "native" and _WORKER_NATIVE is None:
-        if AGLMNativeAccelerator is None:
-            raise RuntimeError("native tokenizer requested but extension is not built")
-        _WORKER_NATIVE = AGLMNativeAccelerator(_WORKER_TOKENIZER)
+    if _FAST_BPE_AVAILABLE:
+        vocab_path = Path(tokenizer_dir) / "aglm_vocab.json.gz"
+        if vocab_path.exists():
+            with gzip.open(vocab_path, "rt") as f:
+                vdata = json.load(f)
+            tlist = [(tok["id"], bytes.fromhex(tok["bytes_hex"])) for tok in vdata["tokens"]]
+            aglm_fast_bpe.init_trie(tlist)
 
 
 def _tokenize_task(task: Tuple[str, bool]) -> Dict[str, Any]:
     text, roundtrip = task
-    if _WORKER_TOKENIZER is None:  # pragma: no cover - defensive
-        raise RuntimeError("tokenizer worker was not initialized")
-    if _WORKER_BACKEND == "native":
-        if _WORKER_NATIVE is None:  # pragma: no cover - defensive
-            raise RuntimeError("native tokenizer worker was not initialized")
-        used_reference_fallback = _WORKER_NATIVE.requires_reference_fallback(text)
-        if used_reference_fallback:
-            tokens, _ = _WORKER_TOKENIZER.engine.encode(text)
-            array = np.asarray(tokens, dtype=UINT32_DTYPE)
-            token_bytes = array.tobytes()
-        else:
-            token_bytes = _WORKER_NATIVE.engine.encode_text_fast_u32(text)
-            array = np.frombuffer(token_bytes, dtype=UINT32_DTYPE)
-    else:
+    if _FAST_BPE_AVAILABLE:
+        token_bytes = aglm_fast_bpe.encode_fast(text)
+        array = np.frombuffer(token_bytes, dtype=UINT32_DTYPE)
+        used_reference_fallback = False
+    elif _WORKER_TOKENIZER is not None:
         used_reference_fallback = False
         tokens, _ = _WORKER_TOKENIZER.engine.encode(text)
         array = np.asarray(tokens, dtype=UINT32_DTYPE)
         token_bytes = array.tobytes()
+    else:
+        raise RuntimeError("tokenizer worker was not initialized")
     result = {
         "tokens": token_bytes, "token_count_without_eos": len(array),
         "min": int(array.min()) if len(array) else None, "max": int(array.max()) if len(array) else None,
         "native_reference_fallback": used_reference_fallback,
     }
-    if roundtrip:
+    if roundtrip and _WORKER_TOKENIZER is not None:
         decoded = _WORKER_TOKENIZER.engine.decode_to_bytes(array.tolist())
         result["roundtrip_sha256"] = hashlib.sha256(decoded).hexdigest()
     return result
